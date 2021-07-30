@@ -28,4 +28,4 @@ https://1drv.ms/x/s!AvCGTtGMf68ogRYlsuXYlplGdwty?e=EvX3nP
 https://user-images.githubusercontent.com/82632398/127517172-77e49b92-2dab-4d4a-aeda-0556a57523e5.jpg
 
 # 画面遷移図
-https://user-images.githubusercontent.com/82632398/127490460-cee01f60-a077-4d9b-827a-66d3a975673e.jpg
+https://user-images.githubusercontent.com/82632398/127662247-730c9c95-d605-4195-86cb-9ddcb9401a92.jpg
