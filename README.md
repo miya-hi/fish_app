@@ -15,7 +15,9 @@
 $ git clone git git@github.com:miya-hi/graduation_work.git  
 $ cd fish_app  
 $ bundle install  
-$ rails db:create && rails db:migrate  
+$ yarn install
+$ rails db:create && rails db:migrate
+$ rails db:seed_fu
 $ rails s  
 
 # カタログ設計・テーブル定義書
@@ -25,7 +27,7 @@ https://docs.google.com/spreadsheets/d/1A_kcO8ItCe_2xPjz2ua53bLzMyH7errAUYxSySqE
 https://1drv.ms/x/s!AvCGTtGMf68ogRYlsuXYlplGdwty?e=EvX3nP
 
 # ER図
-https://user-images.githubusercontent.com/82632398/127517172-77e49b92-2dab-4d4a-aeda-0556a57523e5.jpg
+https://user-images.githubusercontent.com/82632398/127739777-c106fbbf-6b36-4070-a576-c3bc805c1825.jpg
 
 # 画面遷移図
 https://user-images.githubusercontent.com/82632398/127662247-730c9c95-d605-4195-86cb-9ddcb9401a92.jpg
