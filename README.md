@@ -27,7 +27,7 @@ https://docs.google.com/spreadsheets/d/1A_kcO8ItCe_2xPjz2ua53bLzMyH7errAUYxSySqE
 https://1drv.ms/x/s!AvCGTtGMf68ogRYlsuXYlplGdwty?e=EvX3nP
 
 # ER図
-https://user-images.githubusercontent.com/82632398/127739777-c106fbbf-6b36-4070-a576-c3bc805c1825.jpg
+https://user-images.githubusercontent.com/82632398/127740039-9f5f9e6b-43ca-468f-8cee-58ea677997b7.jpg
 
 # 画面遷移図
 https://user-images.githubusercontent.com/82632398/127662247-730c9c95-d605-4195-86cb-9ddcb9401a92.jpg
