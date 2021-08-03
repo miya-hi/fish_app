@@ -12,7 +12,7 @@
 - chartkick
 
 # 実行手順
-$ git clone git git@github.com:miya-hi/graduation_work.git  
+$ git clone git@github.com:miya-hi/fish_app.git  
 $ cd fish_app  
 $ bundle install  
 $ yarn install
