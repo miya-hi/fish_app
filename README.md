@@ -15,9 +15,10 @@
 $ git clone git@github.com:miya-hi/fish_app.git  
 $ cd fish_app  
 $ bundle install  
-$ yarn install
-$ rails db:create && rails db:migrate
-$ rails db:seed_fu
+$ yarn install  
+$ rails db:create  
+$ rails db:migrate  
+$ rails db:seed_fu  
 $ rails s  
 
 # カタログ設計・テーブル定義書
