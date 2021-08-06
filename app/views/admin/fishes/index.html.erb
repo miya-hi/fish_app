@@ -1,6 +1,8 @@
 <h1>管理者画面 魚の一覧</h1>
 <%= select_tag'line',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %>
 <%= select_tag'name',options_from_collection_for_select(@fishes, :id, :name) %>
+<a href="javascript:void(0)" id="edit-fish-btn">選択した魚を編集する</a>
+
 <script>
   $(function() {
     $('#line').change(function() {
@@ -18,7 +20,44 @@
       });
     });
   });
+  $(function(){
+    $('#edit-fish-btn').click(function() {
+      // 選択中の魚のIDを取得
+      const fishId = $('#name').val();
+  　　 console.log("fishId=%o", fishId);
+
+      // 選択中であれば編集画面へ遷移
+      if (fishId) {
+        window.location = '/admin/fishes/' + fishId + '/edit';
+      } else {
+        console.log("魚を選択してください。");
+      }
+    });
+  });
+  // $(function() {
+  //   $('#name').on('change', function() {
+  //     console.log($nameSelect);
+  //     });
+  //   });
   </script>
+
+
+<!-- <script>
+$(function(){
+  $('edit-fish-btn').click(function() {
+    // 選択中の魚のIDを取得
+    const fishId = $('#name').val();
+　　 console.log("fishId=%o", fishId);
+
+    // 選択中であれば編集画面へ遷移
+    if (fishId) {
+      window.location = '/admin/fish/' + fishId + '/edit';
+    } else {
+      console.log("魚を選択してください。");
+    }
+  });
+});
+</script> -->
   <!-- $.get({
 }).then(function(data) {
   console.log('data=%o', data);
