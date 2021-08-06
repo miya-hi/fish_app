@@ -117,7 +117,7 @@ Fish.create!(name: "スルメイカ", line: "す", n3_oil: 0.18, vitamin_a: 13, 
 Fish.create!(name: "ホタルイカ", line: "ほ", n3_oil: 0.83, vitamin_a: 1500, mercury: nil, content: "1匹 10g", image: "")
 Fish.create!(name: "タコ", line: "た", n3_oil: 0.11, vitamin_a: 5, mercury: nil, content: "", image: "")
 Fish.create!(name: "うに", line: "う", n3_oil: 0.73, vitamin_a: 58, mercury: nil, content: "", image: "")
-Fish.create!(name: "かにかま", line: "", n3_oil: 0.11, vitamin_a: 21, mercury: nil, content: "1本 10g", image: "")
+Fish.create!(name: "かにかま", line: "か", n3_oil: 0.11, vitamin_a: 21, mercury: nil, content: "1本 10g", image: "")
 Fish.create!(name: "かまぼこ", line: "か", n3_oil: 0.21, vitamin_a: 0, mercury: nil, content: "1切 10g", image: "")
 Fish.create!(name: "竹輪", line: "ち", n3_oil: 0.20, vitamin_a: 0, mercury: nil, content: "1本 30g", image: "")
 Fish.create!(name: "つみれ", line: "つ", n3_oil: 0.71, vitamin_a: 0, mercury: nil, content: "1個 20g", image: "")
