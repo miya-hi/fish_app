@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   resources :diaries, only: [:index]
   namespace :admin do
     resources :fishes
+    resources :users
+  end
+  namespace :api do
+    resources :fishes, only: [:index]
   end
 end

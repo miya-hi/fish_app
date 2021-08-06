@@ -12,7 +12,7 @@ class Admin::FishesController < ApplicationController
       render new
     else
       if @fish.save
-        redirect_to fishes_path, notice: "新しい魚を登録しました"
+        redirect_to admin_fishes_path, notice: "新しい魚を登録しました"
       else
         render :new
       end

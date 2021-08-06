@@ -1,12 +1,36 @@
 <h1>管理者画面 魚の一覧</h1>
 <%= select_tag'line',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %>
 <%= select_tag'name',options_from_collection_for_select(@fishes, :id, :name) %>
-<%# :javaScript
+<script>
   $(function() {
     $('#line').change(function() {
       $.get({
-        url: "#{}",
-        data: { publisher_id: $('#publisher_id').has('option:selected').val() }
+        url: "/api/fishes.json",
+        data: { line: $('#line').has('option:selected').val() }
+      }).then(function(data) {
+        console.log('data=%o', data);
+        const $nameSelect = $('#name');
+        $nameSelect.find('option').remove();
+        data.fishes.forEach(function(fish) {
+          // $nameSelect.append(`<option value="${fish.id}">${fish.name}</option>`);
+          $nameSelect.append('<option value="' + fish.id + '">' + fish.name + '</option>'); //IEでも使える
+        });
       });
     });
-  }); %>
+  });
+  </script>
+  <!-- $.get({
+}).then(function(data) {
+  console.log('data=%o', data);
+}) -->
+<!-- // 魚の名前一覧のプルダウン要素を取得
+const $nameSelect = $('#name');
+
+// 現在の魚一覧を削除
+$nameSelect.find('option').remove();
+
+html オプションタグ　探したオプションタグ
+
+$nameSelect.append(`<option value="${fish.id}">${fish.name}</option>`);
+
+ `を使う：${}の中に変数を埋め込める IEは古いので認識されない -->
