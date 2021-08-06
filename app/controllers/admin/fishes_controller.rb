@@ -22,14 +22,14 @@ class Admin::FishesController < ApplicationController
   end
   def update
     if @fish.update(fish_params)
-      redirect_to fishes_path, notice: "編集しました"
+      redirect_to admin_fishes_path, notice: "編集しました"
     else
       render :edit
     end
   end
   def destroy
     @fish.destroy
-    redirect_to fishes_path, notice: "魚を削除しました"
+    redirect_to admin_fishes_path, notice: "魚を削除しました"
   end
   private
 
