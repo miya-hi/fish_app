@@ -11,11 +11,12 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= link_to "ユーザー情報", user_path(current_user) %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <% if current_user.admin == true %>
         <%= link_to "メイン画面へ",diaries_path %>
       <% end %>
+      <%= link_to "このアプリについて", tops_help_path %>
+      <%= link_to "ユーザー情報", user_path(current_user) %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "ユーザー登録", new_user_registration_path %>
       <%= link_to "ログイン", new_user_session_path %>
