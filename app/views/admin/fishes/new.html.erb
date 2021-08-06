@@ -1,32 +1,4 @@
 <h1>管理者画面 新しい魚の登録</h1>
-<%= form_with(model: @fish, url: new_admin_fish_path, local: true) do |form| %>
-  <div class="wrapper">
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-    <div class="field">
-      <%= form.label :line %>
-      <%= form.text_field :line %>
-    </div>
-    <div class="field">
-      <%= form.label :n3_oil %>
-      <%= form.text_field :n3_oil %>
-    </div>
-    <div class="field">
-      <%= form.label :vitamin_a %>
-      <%= form.text_field :vitmamin_a %>
-    </div>
-    <div class="field">
-      <%= form.label :mercury %>
-      <%= form.text_field :mercury %>
-    </div>
-    <div class="field">
-      <%= form.label :content %>
-      <%= form.text_area :content %>
-    </div>
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  </div>
-  <% end %>
+<%= form_with model: @fish, url: admin_fishes_path, method: :post do |form| %>
+<%= render partial: 'form', locals: { form: form } %>
+<% end %>
