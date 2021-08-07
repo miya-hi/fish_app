@@ -1,0 +1,8 @@
+<h1>ユーザー情報</h1>
+<%= current_user.name %>
+<%= current_user.baby_due_on %>
+<%= link_to "ユーザー情報を編集する", edit_user_registration_path %>
+
+<h3>ユーザー情報を削除</h3>
+
+<p><%= button_to "削除", user_registration_path, data: { confirm: "Are you sure?" }, method: :delete %></p>
