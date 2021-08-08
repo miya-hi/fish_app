@@ -19,10 +19,11 @@
       <% end %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
+      <%= link_to "おさかなモニター",root_path %>
       <%= link_to "ユーザー登録", new_user_registration_path %>
       <%= link_to "ログイン", new_user_session_path %>
-      <%= link_to "ゲストログイン"  %>
-      <%= link_to "管理者ログイン"  %>
+      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
+      <%= link_to "管理者ログイン", users_admin_guest_sign_in_path, method: :post  %>
     <% end %>
     <%= yield %>
     <footer>copyright&copy; 2021 おさかなモニター All Rights Reserved.</footer>
