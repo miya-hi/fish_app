@@ -12,9 +12,9 @@
         <%= f.check_box :admin, checked: @user.admin == true %></td>
     </tr>
     <tr>
-      <td colspan=2""><%= f.submit '更新' %></td>
+      <td colspan=2""><%= f.submit '変更する' %></td>
     </tr>
       <% end %>
   </table>
   <br>
-  <%= button_to '戻る', admin_users_path, method: :get %>
+  <%= link_to '戻る', admin_users_path, method: :get %>

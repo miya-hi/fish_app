@@ -1,19 +1,19 @@
 <h1>《管理者ページ》</h1>
-<h3>魚の情報</h3>
-<%= button_to '魚の一覧ページへ', admin_fishes_path, method: :get %>
+<h3>魚の一覧・編集</h3>
+<%= button_to '魚の一覧へ', admin_fishes_path, method: :get %>
 <br>
 <h3>ユーザー情報</h3>
 <table>
   <tr>
     <th>ニックネーム</th>
-    <th>管理者権限</th>
+    <th>管理者権限 (有:○ 無:×)</th>
     <th></th>
   </tr>
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
     <td><% if user.admin == true %>○<% else %>×<% end %></td>
-    <td><%= button_to "このユーザーの管理者権限を編集", edit_admin_user_path(user.id), method: :get %></td>
+    <td><%= button_to "管理者権限の変更", edit_admin_user_path(user.id), method: :get %></td>
   </tr>
 <% end %>
 </table>
