@@ -6,10 +6,10 @@ Rails.application.routes.draw do
    }
   get '/tops/help', to: 'tops#help'
   resources :users, only: [:show]
-  resources :diaries, only: [:index]
+  resources :diaries, only: [:index, :edit]
   namespace :admin do
     resources :fishes
-    resources :users, only: [:index]
+    resources :users, only: [:index, :edit, :update]
   end
   namespace :api do
     resources :fishes, only: [:index]
