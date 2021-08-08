@@ -1,4 +1,5 @@
 class Admin::FishesController < ApplicationController
+  before_action :if_not_admin
   before_action :set_fish, only: [:edit, :update, :destroy]
   def index
     @fishes = Fish.all
@@ -32,7 +33,9 @@ class Admin::FishesController < ApplicationController
     redirect_to admin_fishes_path, notice: "魚を削除しました"
   end
   private
-
+  def if_not_admin
+    redirect_to root_path unless current_user.admin?
+  end
   def fish_params
     params.require(:fish).permit(:name, :line, :n3_oil, :vitamin_a, :mercury, :content, :image)
   end
