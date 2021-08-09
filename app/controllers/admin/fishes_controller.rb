@@ -23,7 +23,7 @@ class Admin::FishesController < ApplicationController
   end
   def update
     if @fish.update(fish_params)
-      redirect_to admin_fishes_path, notice: "編集しました"
+      redirect_to admin_fishes_path, notice: "魚の情報を更新しました"
     else
       render :edit
     end

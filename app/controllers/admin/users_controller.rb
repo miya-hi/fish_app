@@ -8,7 +8,7 @@ class Admin::UsersController < ApplicationController
   end
   def update
     if @user.update(user_params)
-      redirect_to admin_users_path, notice: "編集しました"
+      redirect_to admin_users_path, notice: "管理者権限を更新しました"
     else
       render :edit
     end
