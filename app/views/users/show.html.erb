@@ -1,8 +1,17 @@
-<h1>ユーザー情報</h1>
-<%= current_user.name %>
-<%= current_user.baby_due_on %>
-<%= link_to "ユーザー情報を編集する", edit_user_registration_path %>
+<h1><%= current_user.name %>さん</h1>
+<% date=(Date.today-current_user.baby_due_on+280).to_int %>
+<p>妊娠<%= date/7 %>週<%= date%7 %>日</p>
+<p><%= image_tag 'baby.jpg', class: 'user_baby' %>予定日まで あと<%= (current_user.baby_due_on-Date.today).to_int %>日</p>
+<table>
+  <tr>
+    <th>ニックネーム</th><td><%= current_user.name %></td>
+  </tr>
+  <tr><th>出産予定日</th><td><%= current_user.baby_due_on %></td></tr>
+  <tr>
+    <td colspan="2"><%= button_to "ユーザー情報を編集する", edit_user_registration_path, method: :get %></td>
+  </tr>
 
-<h3>ユーザー情報を削除</h3>
+</table>
+<h3>おさかなモニターの退会</h3>
 
-<p><%= button_to "削除", user_registration_path, data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= button_to "退会する", user_registration_path, data: { confirm: "ユーザーの情報とおさかなの記録が削除されますが、よろしいですか?" }, method: :delete %></p>
