@@ -4,5 +4,5 @@ class DiariesController < ApplicationController
     @diaries = Diary.all
     @diary = Diary.new
   end
-  def
+
 end
