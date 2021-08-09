@@ -1,1 +1,22 @@
-<p>diaries#index</p>
+<h1></h1>
+<%= month_calendar diaries: @diaries do |date, diaries| %>
+  <%= date.day %>
+<% end %>
+<h3>今日食べたおさかなを登録</h3>
+<%= form_with(model: @diary, local: true) do |form| %>
+
+  <div class="field fishname">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+    <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>
