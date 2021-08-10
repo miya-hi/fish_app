@@ -19,6 +19,7 @@ class User < ApplicationRecord
   def self.admin_guest
     find_or_create_by!(name: '管理者001', admin: true) do |user|
       user.password = SecureRandom.urlsafe_base64
+      user.baby_due_on = '2021-12-01'
     end
   end
 end
