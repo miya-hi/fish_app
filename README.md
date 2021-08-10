@@ -18,7 +18,7 @@ $ bundle install
 $ yarn install  
 $ rails db:create  
 $ rails db:migrate  
-$ rails db:seed_fu  
+$ rails db:seed  
 $ rails s  
 
 # カタログ設計・テーブル定義書
