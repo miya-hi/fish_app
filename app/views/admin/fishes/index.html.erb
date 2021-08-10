@@ -8,8 +8,8 @@
   <tr>
     <td><%= select_tag'line',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %></td>
     <td><%= select_tag'name',options_from_collection_for_select(@fishes, :id, :name) %></td>
-    <td><button><a href="javascript:void(0)" id="edit-fish-btn">選択した魚の編集</a></button></td>
-<!-- button_to ('選択した魚を編集削除', 'javascript:void(0);', :id => :edit-fish-btn)  -->
+    <!-- vaule=id 選択肢＝name -->
+    <td><button id="edit-fish-btn">選択した魚の編集</button></td>
   </tr>
 </table>
 <br>
@@ -22,6 +22,7 @@
         data: { line: $('#line').has('option:selected').val() }
       }).then(function(data) {
         console.log('data=%o', data);
+        // %oオブジェクトの内容を出してくれる
         const $nameSelect = $('#name');
         $nameSelect.find('option').remove();
         data.fishes.forEach(function(fish) {
