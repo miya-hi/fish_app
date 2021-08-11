@@ -1,0 +1,33 @@
+<h1>おさかなの編集</h1>
+<%= form_with(model: @diary, local: true) do |form| %>
+  <div class="field">
+    <%= select_tag'diary[line]',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %></td>
+    <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name) %>
+    <textarea name='content'></textarea>
+  </div>
+  <div class="field">
+    <%= form.label :量 %>
+    <%= form.text_field :amount %><span>g</span>
+  </div>
+  <div class="submit">
+    <%= form.submit "登録"%>
+  </div>
+<% end %>
+
+<script>
+  $(function() {
+    $('#diary_line').change(function() {
+      $.get({
+        url: "/api/fishes.json",
+        data: { line: $('#diary_line').has('option:selected').val() }
+      }).then(function(data) {
+        console.log('data=%o', data);
+        const $nameSelect = $('#diary_fish_id');
+        $nameSelect.find('option').remove();
+        data.fishes.forEach(function(fish) {
+          $nameSelect.append('<option value="' + fish.id + '">' + fish.name + '</option>');
+        });
+      });
+    });
+  });
+  </script>

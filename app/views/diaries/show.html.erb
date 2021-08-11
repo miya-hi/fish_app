@@ -12,11 +12,15 @@
       </tr>
       <tr>
         <td>水銀</td>
-        <td><%= diary.fish.mercury %>% 1週間の上限量:100%</td>
+        <td><%= diary.fish.mercury.to_f %>% 1週間の上限量:100%</td>
       </tr>
       <tr>
         <td>ビタミンA</td>
         <td><%= diary.fish.vitamin_a %>μgRAE 推奨量:650~700μgRAE</td>
+      </tr>
+      <tr>
+        <td><%= button_to'編集',edit_diary_path(diary.id), method: :get %></td>
+        <td><%= button_to'削除',diary_path(diary.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       </tr>
     </table>
   <% end %>
@@ -29,7 +33,7 @@
       <tr>
         <td colspan="2">
           <% if total_n3_oil >= 1.6 %>
-            <%= "きちんと摂れています。素晴らしいです。" %>
+            <%= "きちんと摂れています。" %>
           <% else %>
             <%= "n-3系脂肪酸は、特に青魚に多く含まれています。また、サプリメントを活用するのもいいでしょう" %>
           <% end %>
