@@ -35,7 +35,7 @@
           <% end %>
         </td>
       </tr>
-      <% total_mercury = @diaries.sum{|f| f.fish.mercury} %>
+      <% total_mercury = @diaries.sum{|f| f.fish.mercury.to_f} %>
       <tr>
         <td>水銀の合計 <%= total_mercury %>％</td>
         <td>１週間の上限量 100%</td>
@@ -65,7 +65,7 @@
       </tr>
     </table>
 <% else %>
-<h1><%= @diaries.ids %></h1>
+<h1><%= @input_at.strftime("%m月%d日") %></h1>
 記録がありません
   <%= button_to 'この日食べたおさかなを登録',new_diary_path, method: :get %>
 <% end %>

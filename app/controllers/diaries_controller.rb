@@ -19,8 +19,8 @@ class DiariesController < ApplicationController
   end
 
   def show
-    # idには YYYY-MM-DD の日付が入ってくる
     @diaries = current_user.diaries.where(input_at: params[:id]).order(id: :asc)
+    @input_at = Date.parse(params[:id])
   end
 
   def edit
