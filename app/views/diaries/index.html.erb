@@ -1,10 +1,10 @@
 <h1></h1>
-<%= button_to '記録',new_diary_path, method: :get %>
-<%= month_calendar diaries: @diaries do |date, diaries| %>
-  <%= date %>
+<%= button_to '今食べたおさかな登録',new_diary_path, method: :get %>
+<%= month_calendar events: @diaries do |date, diaries| %>
+  <%= link_to date, diary_path(date.strftime('%Y-%m-%d')) %>
   <% diaries.each do |diary| %>
     <div>
-      <%= diary.name %>
+      <%= diary.fish.name %>
     </div>
   <% end %>
 <% end %>
