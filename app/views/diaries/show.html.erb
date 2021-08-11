@@ -1,0 +1,71 @@
+<% if @diaries.size > 0 %>
+<h1><%= @diaries.first.input_at.strftime("%m月%d日") %>に食べたおさかな</h1>
+  <% @diaries.each do |diary| %>
+    <table>
+      <tr>
+        <td><%= diary.fish.name %></td>
+        <td><%= diary.amount %>g</td>
+      </tr>
+      <tr>
+        <td>n-3系脂肪酸</td>
+        <td><%= diary.fish.n3_oil %>g 目安量:1.6g</td>
+      </tr>
+      <tr>
+        <td>水銀</td>
+        <td><%= diary.fish.mercury %>% 1週間の上限量:100%</td>
+      </tr>
+      <tr>
+        <td>ビタミンA</td>
+        <td><%= diary.fish.vitamin_a %>μgRAE 推奨量:650~700μgRAE</td>
+      </tr>
+    </table>
+  <% end %>
+  <table>
+    <% total_n3_oil = @diaries.sum{|f| f.fish.n3_oil} %>
+    <tr>
+      <td>n-3系脂肪酸の合計 <%= total_n3_oil %>g</td>
+      <td>目安量 1.6g</td>
+    </tr>
+      <tr>
+        <td colspan="2">
+          <% if total_n3_oil >= 1.6 %>
+            <%= "きちんと摂れています。素晴らしいです。" %>
+          <% else %>
+            <%= "n-3系脂肪酸は、特に青魚に多く含まれています。また、サプリメントを活用するのもいいでしょう" %>
+          <% end %>
+        </td>
+      </tr>
+      <% total_mercury = @diaries.sum{|f| f.fish.mercury} %>
+      <tr>
+        <td>水銀の合計 <%= total_mercury %>％</td>
+        <td>１週間の上限量 100%</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <% if total_mercury >= 100 %>
+            <%= "水銀が多いです。今後しばらくは、水銀の多いおさかなを控えましょう。" %>
+          <% else %>
+            <%= "前後１週間の合計を、グラフで確認してみましょう。" %>
+          <% end %>
+        </td>
+      </tr>
+      <% total_vitamin_a = @diaries.sum{|f| f.fish.vitamin_a} %>
+      <tr>
+        <td>ビタミンAの合計 <%= total_vitamin_a %>μgRAE</td>
+        <td>推奨量 650~700μgRAE</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <% if total_vitamin_a >= 700 %>
+            <%= "ビタミンAが多いです。特に妊娠初期は摂りすぎに気をつけましょう。。" %>
+          <% else %>
+            <%= "ビタミンAが多すぎることはありません。" %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+<% else %>
+<h1><%= @diaries.ids %></h1>
+記録がありません
+  <%= button_to 'この日食べたおさかなを登録',new_diary_path, method: :get %>
+<% end %>
