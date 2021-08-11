@@ -2,7 +2,7 @@
 <%= form_with(model: @diary, local: true) do |form| %>
   <div class="field">
     <%= select_tag'diary[line]',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %></td>
-    <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name) %>
+    <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name, @diary.fish.id) %>
     <textarea name='content'></textarea>
   </div>
   <div class="field">

@@ -24,6 +24,7 @@ class DiariesController < ApplicationController
   end
 
   def edit
+    @fishes = Fish.all
   end
 
   def update
