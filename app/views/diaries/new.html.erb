@@ -3,7 +3,10 @@
   <div class="field">
     <%= select_tag'diary[line]',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %></td>
     <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name) %>
-    <textarea name='content'></textarea>
+    <div><textarea name='content'></textarea></div>
+  </div>
+  <div class="field">
+    <%# <%= select_tag'[favorite]fish_id',options_from_collection_for_select(@favorite, :id, :name) %> %>
   </div>
   <div class="field">
     <%= form.label :量 %>
@@ -13,7 +16,7 @@
     <%= form.submit "登録"%>
   </div>
 <% end %>
-
+<%= button_to "おさかなのお気に入り登録", new_favorite_path, method: :get %>
 <script>
   $(function() {
     $('#diary_line').change(function() {

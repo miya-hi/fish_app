@@ -9,6 +9,7 @@ class DiariesController < ApplicationController
   def new
     @diary = Diary.new
     @fishes = Fish.all
+    @favorites = current_user.favorites
   end
 
   def create

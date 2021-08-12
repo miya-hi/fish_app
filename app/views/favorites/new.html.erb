@@ -1,0 +1,20 @@
+<%= select_tag'[favorite]line',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %></td>
+<%= select_tag'[favorite]fish_id',options_from_collection_for_select(@fishes, :id, :name) %>
+<%= link_to '選択した魚をお気に入り登録する', favorites_path(fish_id: @fish), method: :post, class: 'btn btn-primary' %>
+
+<script>
+  $(function() {
+    $('#favorite_line').change(function() {
+      $.get({
+        url: "/api/fishes.json",
+        data: { line: $('#favorite_line').has('option:selected').val() }
+      }).then(function(data) {
+        console.log('data=%o', data);
+        const $nameSelect = $('#favorite_fish_id');
+        $nameSelect.find('option').remove();
+        data.fishes.forEach(function(fish) {
+          $nameSelect.append('<option value="' + fish.id + '">' + fish.name + '</option>');
+        });
+      });
+    });
+  });
