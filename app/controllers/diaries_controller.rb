@@ -4,6 +4,8 @@ class DiariesController < ApplicationController
 
   def index
     @diaries = Diary.all
+    @summary_diaries = current_user.diaries.where(input_at: (Date.today.ago(1.week)..Date.today))
+    @total_mercury = @summary_diaries.sum{|d| d.amount.to_i * d.fish.mercury.to_f / 100}
   end
 
   def new
