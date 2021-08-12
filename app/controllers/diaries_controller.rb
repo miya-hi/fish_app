@@ -10,6 +10,7 @@ class DiariesController < ApplicationController
 
   def new
     @diary = Diary.new
+    @diary.input_at = Date.parse(params[:input_at]) if params[:input_at].present?
     @fishes = Fish.all
     @favorites = current_user.favorites
   end
