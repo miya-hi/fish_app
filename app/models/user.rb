@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :diaries, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorite_fishes, through: :favorites, source: :fish
 
   def email_required?
     false
