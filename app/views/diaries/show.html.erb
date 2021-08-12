@@ -71,5 +71,5 @@
 <% else %>
 <h1><%= @input_at.strftime("%m月%d日") %></h1>
 記録がありません
-  <%= button_to 'この日食べたおさかなを登録',new_diary_path, method: :get %>
+  <%= link_to 'この日食べたおさかなを登録',new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), method: :get %>
 <% end %>

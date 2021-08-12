@@ -3,7 +3,7 @@ class DiariesController < ApplicationController
   before_action :set_diary, only: [:edit, :update, :destroy]
 
   def index
-    @diaries = Diary.all
+    @diaries = current_user.diaries
     @summary_diaries = current_user.diaries.where(input_at: (Date.today.ago(1.week)..Date.today))
     @total_mercury = @summary_diaries.sum{|d| d.amount.to_i * d.fish.mercury.to_f / 100}
   end
