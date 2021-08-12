@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_08_11_072401) do
     t.string "name"
     t.string "line"
     t.float "n3_oil"
-    t.float "vitamin_a"
+    t.integer "vitamin_a"
     t.float "mercury"
     t.text "content"
     t.string "image"

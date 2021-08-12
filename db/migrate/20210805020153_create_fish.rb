@@ -4,7 +4,7 @@ class CreateFish < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :line
       t.float :n3_oil
-      t.float :vitamin_a
+      t.integer :vitamin_a
       t.float :mercury
       t.text :content
       t.string :image
