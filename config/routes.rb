@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
   resources :diaries
-  resources :favorites, only: [:index, :create, :destroy]
+  resources :favorites, only: [:index, :destroy]
   namespace :admin do
     resources :fishes
     resources :users, only: [:index, :edit, :update]

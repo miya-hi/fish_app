@@ -10,7 +10,10 @@
     <%= form.label :量 %>
     <%= form.text_field :amount %><span>g</span>
   </div>
-
+  <div class="field">
+    <%= form.label :選択した魚をお気に入り登録 %>
+    <%= check_box_tag('register_favorite', true) %>
+  </div>
   <div class="submit">
     <%= form.submit "登録"%>
   </div>

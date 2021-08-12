@@ -1,0 +1,17 @@
+<h1>お気に入り一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>おさかな名</th>
+      <th>削除する</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @favorites.each do |favorite| %>
+      <tr>
+        <td><%= favorite.fish.name %></td>
+        <td><%= button_to "削除", favorite_path(favorite), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
