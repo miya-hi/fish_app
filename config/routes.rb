@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
   resources :diaries
-  resources :favorites, only: [:new, :create, :destroy]
+  resources :favorites, only: [:index, :create, :destroy]
   namespace :admin do
     resources :fishes
     resources :users, only: [:index, :edit, :update]
   end
   namespace :api do
-    resources :fishes, only: [:index]
+    resources :fishes, only: [:index, :show]
   end
 end

@@ -6,6 +6,9 @@ class Api::FishesController < Api::BaseController
       render json: { error: '選択してください' }, status: :bad_request and return
     end
   end
+  def show
+    @fish = Fish.find(params[:id])
+  end
 
   private
 
