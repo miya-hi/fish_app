@@ -8,15 +8,15 @@
       </tr>
       <tr>
         <td>n-3系脂肪酸</td>
-        <td><%= diary.fish.n3_oil %>g 目安量:1.6g</td>
+        <td><%= diary.fish_n3_oil %>g 目安量:1.6g</td>
       </tr>
       <tr>
         <td>水銀</td>
-        <td><%= diary.fish.mercury.to_f %>% 1週間の上限量:100%</td>
+        <td><%= diary.fish_mercury %>% 1週間の上限量:100%</td>
       </tr>
       <tr>
         <td>ビタミンA</td>
-        <td><%= diary.fish.vitamin_a %>μgRAE 推奨量:650~700μgRAE</td>
+        <td><%= diary.fish_vitamin_a %>μgRAE 推奨量:650~700μgRAE</td>
       </tr>
       <tr>
         <td><%= button_to'編集',edit_diary_path(diary.id), method: :get %></td>
@@ -25,7 +25,7 @@
     </table>
   <% end %>
   <table>
-    <% total_n3_oil = @diaries.sum{|f| f.fish.n3_oil} %>
+    <% total_n3_oil = @diaries.sum{|f| f.fish_n3_oil} %>
     <tr>
       <td>n-3系脂肪酸の合計 <%= total_n3_oil %>g</td>
       <td>目安量 1.6g</td>
@@ -39,7 +39,7 @@
           <% end %>
         </td>
       </tr>
-      <% total_mercury = @diaries.sum{|f| f.fish.mercury.to_f} %>
+      <% total_mercury = @diaries.sum{|f| f.fish_mercury} %>
       <tr>
         <td>水銀の合計 <%= total_mercury %>％</td>
         <td>１週間の上限量 100%</td>
@@ -53,7 +53,7 @@
           <% end %>
         </td>
       </tr>
-      <% total_vitamin_a = @diaries.sum{|f| f.fish.vitamin_a} %>
+      <% total_vitamin_a = @diaries.sum{|f| f.fish_vitamin_a} %>
       <tr>
         <td>ビタミンAの合計 <%= total_vitamin_a %>μgRAE</td>
         <td>推奨量 650~700μgRAE</td>
