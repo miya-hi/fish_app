@@ -14,12 +14,13 @@ class DiariesController < ApplicationController
     @diary.input_at = Date.parse(params[:input_at]) if params[:input_at].present?
     @fishes = Fish.all
     @favorites = current_user.favorites
+    @favorite_fishes = current_user.favorite_fishes
   end
 
   def create
     @diary = current_user.diaries.build(diary_params)
     @diary.input_at = Date.today if @diary.input_at.blank?
-    @diary.save
+    @diary.save!
     if params[:register_favorite] == "true"
       current_user.favorites.where(fish_id: @diary.fish_id).first_or_create
     end
@@ -51,6 +52,9 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
+    if params[:favorite][:fish_id].present?
+      params[:diary][:fish_id] = params[:favorite][:fish_id]
+    end
     params.require(:diary).permit(:fish_id, :amount, :input_at)
   end
   def set_diary
