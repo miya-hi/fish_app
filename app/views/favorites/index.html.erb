@@ -10,7 +10,7 @@
     <% @favorites.each do |favorite| %>
       <tr>
         <td><%= favorite.fish.name %></td>
-        <td><%= button_to "削除", favorite_path(favorite), method: :delete %></td>
+        <td><%= button_to "削除", favorite_path(favorite), method: :delete, notice: "削除しました" %></td>
       </tr>
     <% end %>
   </tbody>
