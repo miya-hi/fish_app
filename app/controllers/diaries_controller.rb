@@ -6,6 +6,7 @@ class DiariesController < ApplicationController
     @diaries = current_user.diaries
     @summary_diaries = current_user.diaries.where(input_at: (Date.today.ago(1.week)..Date.today))
     @total_mercury = @summary_diaries.sum{|d| d.amount.to_i * d.fish.mercury.to_f / 100}
+    @total_n3_oil = @summary_diaries.sum{|d| d.amount.to_i * d.fish.n3_oil.to_f / 100}
   end
 
   def new
@@ -18,7 +19,7 @@ class DiariesController < ApplicationController
   def create
     @diary = current_user.diaries.build(diary_params)
     @diary.input_at = Date.today if @diary.input_at.blank?
-    @diary.save!
+    @diary.save
     if params[:register_favorite] == "true"
       current_user.favorites.where(fish_id: @diary.fish_id).first_or_create
     end
