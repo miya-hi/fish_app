@@ -1,5 +1,15 @@
 <h1>食べたおさかな登録</h1>
 <%= form_with(model: @diary, local: true) do |form| %>
+<% if @diary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @diary.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @diary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <%= form.hidden_field :input_at %>
 <ul>
   <h4>魚を選択 一覧またはお気に入りから</h4>
@@ -62,6 +72,18 @@
       }).then(function(data) {
         const fish = data.fish;
         $('#favorite_content').text(fish.content);
+      })
+    });
+  });
+  $(function() {
+    $('#favorite_content').change(function() {
+      const fishId = $(this).val();
+      if (!fishId) return;
+      $.get({
+        url: '/api/fishes/' + fishId + '.json',
+      }).then(function(data) {
+        const fish = data.fish;
+        $('#favorite_fish_id').text(fish.content);
       })
     });
   });

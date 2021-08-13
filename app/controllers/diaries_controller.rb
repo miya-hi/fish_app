@@ -18,13 +18,18 @@ class DiariesController < ApplicationController
   end
 
   def create
+    @fishes = Fish.all
+    @favorite_fishes = current_user.favorite_fishes
     @diary = current_user.diaries.build(diary_params)
     @diary.input_at = Date.today if @diary.input_at.blank?
-    @diary.save!
+    if @diary.save
     if params[:register_favorite] == "true"
       current_user.favorites.where(fish_id: @diary.fish_id).first_or_create
     end
     redirect_to diary_path(@diary.input_at.strftime('%Y-%m-%d')), notice: "作成しました" and return
+  else
+    render :new
+  end
   end
 
   def show
