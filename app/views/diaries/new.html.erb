@@ -36,7 +36,7 @@
       }).then(function(data) {
         console.log('data=%o', data);
         const $nameSelect = $('#diary_fish_id');
-        $nameSelect.find('option').remove();
+        $nameSelect.find('option[value!=""]').remove();
         data.fishes.forEach(function(fish) {
           $nameSelect.append('<option value="' + fish.id + '">' + fish.name + '</option>');
         });
@@ -53,5 +53,21 @@
       })
     });
   });
-  
+  $(function() {
+    $('#favorite_fish_id').change(function() {
+      const fishId = $(this).val();
+      if (!fishId) return;
+      $.get({
+        url: '/api/fishes/' + fishId + '.json',
+      }).then(function(data) {
+        const fish = data.fish;
+        $('#favorite_content').text(fish.content);
+      })
+    });
+  });
+  $(function() {
+    $('#favorite_fish_id').change(function() {
+        $('#diary_fish_id').prop("selectedIndex", 0);
+    })
+  });
   </script>
