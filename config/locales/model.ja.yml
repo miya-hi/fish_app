@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      fish: おさかな
+      diary: カレンダー
+      favorite: お気に入り
+    attributes:
+      user:
+        id: ID
+        name: ニックネーム
+        admin: 管理者
+        password: パスワード
+        password_confirmation: パスワード確認
+        current_password: 現在のパスワード
+        baby_due_on: 出産予定日
+      fish:
+        id: ID
+        line: 行
+        name: おさかな名
+        content: 詳細
+        image: 画像
+        n3_oil: n-3系脂肪酸
+        vitamin_a: ビタミンA
+        mercury: 水銀
+      diary:
+        fish: おさかな
+        amount: 量
+        input_at: 日付

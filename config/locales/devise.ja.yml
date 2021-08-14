@@ -1,0 +1,65 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+ja:
+  devise:
+    confirmations:
+      confirmed: "メールアドレスが確認できました。"
+      send_instructions: "メールアドレスの確認方法に関して、登録したアドレスにメールをお送りしました。"
+      send_paranoid_instructions: "もしあなたのメールアドレスが登録済みであれば、メールアドレスの確認方法に関するメールが届きます。"
+    failure:
+      already_authenticated: "既にログインしています"
+      inactive: "アカウントが無効です"
+      invalid: "ニックネームとパスワードを入力してください"
+      locked: "アカウントがロックされています"
+      last_attempt: "ログインにあと1回失敗すると、アカウントがロックされます。"
+      not_found_in_database: "ニックネームまたはパスワードが無効です"
+      timeout: "セッションが切断されました。もう一度ログインしてください"
+      unauthenticated: "続けるには、ログインが必要です"
+      unconfirmed: "続けるには、ニックネームが必要です"
+    mailer:
+      confirmation_instructions:
+        subject: "確認方法"
+      reset_password_instructions:
+        subject: "パスワードのリセット方法"
+      unlock_instructions:
+        subject: "ロックの解除方法"
+      email_changed:
+        subject: "メールアドレスが変更されました"
+      password_change:
+        subject: "パスワードが変更されました"
+    omniauth_callbacks:
+      failure: " \"%{reason}\"により%{kind}を認証できませんでした"
+      success: "%{kind}が認証されました"
+    passwords:
+      no_token: "パスワードリセットに関するメール以外から、このページにはアクセスができません"
+      send_instructions: "パスワードのリセット方法に関するメールをお送りしました"
+      send_paranoid_instructions: "もしあなたのメールアドレスが登録されていれば、パスワードの復旧方法に関するメールが届きます"
+      updated: "パスワードが変更されました。ログイン中です"
+      updated_not_active: "パスワードが変更されました"
+    registrations:
+      destroyed: "あなたのアカウントが削除されました。またご利用ください"
+      signed_up: "アカウントが登録されました"
+      signed_up_but_inactive: "ユーザー登録できましたが、アカウントが認証できていないため、ログインできません"
+      signed_up_but_locked: "ユーザー登録できましたが、アカウントがロックされているため、ログインできません"
+      signed_up_but_unconfirmed: "アカウント認証に関するメールをお送りしました。ご確認ください"
+      update_needs_confirmation: "アカウント情報が更新されました。新しいメールアドレスを認証するため、お送りしたメールをご確認ください"
+      updated: "アカウント情報が更新されました"
+      updated_but_not_signed_in: "アカウント情報が更新されました。もう一度ログインしてください"
+    sessions:
+      signed_in: "ログインしました"
+      signed_out: "ログアウトしました"
+      already_signed_out: "ログアウトしました"
+    unlocks:
+      send_instructions: "アカウントのロック解除に関するメールをお送りしました"
+      send_paranoid_instructions: "もしあなたのアカウントが登録済みであれば、アカウントのロック解除に関するメールが届きます"
+      unlocked: "アカウントのロックが解除されました。続けるには、ログインが必要です"
+  errors:
+    messages:
+      already_confirmed: "既に登録されています。ログインしてください"
+      confirmation_period_expired: "%{period}以内に確認が必要です。もう一度やり直して下さい"
+      expired: "期限が切れています。もう一度やり直してください"
+      not_found: "見つかりません"
+      not_locked: "ロックされていません"
+      not_saved:
+        one: "1個のエラー %{resource}を保存できません:"
+        other: "%{count} 個のエラー %{resource}を保存できません:"

@@ -8,7 +8,6 @@
   <tr>
     <td><%= select_tag'line',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %></td>
     <td><%= select_tag'name',options_from_collection_for_select(@fishes, :id, :name) %></td>
-    <!-- vaule=id 選択肢＝name -->
     <td><button id="edit-fish-btn">選択した魚の編集</button></td>
   </tr>
 </table>
@@ -34,11 +33,8 @@
   });
   $(function(){
     $('#edit-fish-btn').click(function() {
-      // 選択中の魚のIDを取得
       const fishId = $('#name').val();
   　　 console.log("fishId=%o", fishId);
-
-      // 選択中であれば編集画面へ遷移
       if (fishId) {
         window.location = '/admin/fishes/' + fishId + '/edit';
       } else {
@@ -46,42 +42,4 @@
       }
     });
   });
-  // $(function() {
-  //   $('#name').on('change', function() {
-  //     console.log($nameSelect);
-  //     });
-  //   });
   </script>
-
-
-<!-- <script>
-$(function(){
-  $('edit-fish-btn').click(function() {
-    // 選択中の魚のIDを取得
-    const fishId = $('#name').val();
-　　 console.log("fishId=%o", fishId);
-
-    // 選択中であれば編集画面へ遷移
-    if (fishId) {
-      window.location = '/admin/fish/' + fishId + '/edit';
-    } else {
-      console.log("魚を選択してください。");
-    }
-  });
-});
-</script> -->
-  <!-- $.get({
-}).then(function(data) {
-  console.log('data=%o', data);
-}) -->
-<!-- // 魚の名前一覧のプルダウン要素を取得
-const $nameSelect = $('#name');
-
-// 現在の魚一覧を削除
-$nameSelect.find('option').remove();
-
-html オプションタグ　探したオプションタグ
-
-$nameSelect.append(`<option value="${fish.id}">${fish.name}</option>`);
-
- `を使う：${}の中に変数を埋め込める IEは古いので認識されない -->
