@@ -1,5 +1,6 @@
 class Diary < ApplicationRecord
   validates :amount, presence: true
+  validates :input_at, presence: true
   belongs_to :user
   belongs_to :fish
 

@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2021_08_11_072401) do
   enable_extension "plpgsql"
 
   create_table "diaries", force: :cascade do |t|
-    t.integer "amount"
-    t.datetime "input_at"
+    t.integer "amount", null: false
+    t.datetime "input_at", null: false
     t.bigint "user_id", null: false
     t.bigint "fish_id", null: false
     t.datetime "created_at", null: false
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2021_08_11_072401) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "fish_id"
+    t.bigint "user_id", null: false
+    t.bigint "fish_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fish_id"], name: "index_favorites_on_fish_id"
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 2021_08_11_072401) do
   end
 
   create_table "fish", force: :cascade do |t|
-    t.string "name"
-    t.string "line"
-    t.float "n3_oil"
-    t.integer "vitamin_a"
+    t.string "name", null: false
+    t.string "line", null: false
+    t.float "n3_oil", null: false
+    t.integer "vitamin_a", null: false
     t.float "mercury"
     t.text "content"
     t.string "image"
