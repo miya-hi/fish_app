@@ -1,4 +1,14 @@
 <h1>《管理者ページ》新しい魚の登録</h1>
-<%= form_with model: @fish, url: admin_fishes_path, method: :post do |form| %>
+<%= form_with model: @fish, url: admin_fishes_path, local: true, method: :post do |form| %>
+<% if @fish.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @fish.errors.count %>件のエラーがあります</h2>
+    <ul>
+    <% @fish.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= render partial: 'form', locals: { form: form } %>
 <% end %>

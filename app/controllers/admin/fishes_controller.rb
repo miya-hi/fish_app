@@ -9,15 +9,11 @@ class Admin::FishesController < ApplicationController
   end
   def create
     @fish = Fish.new(fish_params)
-    if params[:back]
-      render new
-    else
       if @fish.save
         redirect_to admin_fishes_path, notice: "新しい魚を登録しました"
       else
         render :new
       end
-    end
   end
   def edit
   end
