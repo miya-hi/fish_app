@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_08_11_072401) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["line"], name: "index_fish_on_line"
   end
 
   create_table "users", force: :cascade do |t|

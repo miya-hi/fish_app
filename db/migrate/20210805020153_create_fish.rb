@@ -9,6 +9,7 @@ class CreateFish < ActiveRecord::Migration[5.2]
       t.text :content
       t.string :image
       t.timestamps
+      t.index :line
     end
   end
 end
