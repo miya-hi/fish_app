@@ -1,6 +1,6 @@
 class Admin::FishesController < ApplicationController
   before_action :if_not_admin
-  before_action :set_fish, only: [:edit, :update, :destroy]
+  before_action :set_fish, only: [:edit, :update, :show, :destroy]
   def index
     @fishes = Fish.all
   end
@@ -23,6 +23,9 @@ class Admin::FishesController < ApplicationController
     else
       render :edit
     end
+  end
+  def show
+    render :edit
   end
   def destroy
     @fish.destroy

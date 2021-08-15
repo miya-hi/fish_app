@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
       post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
   end
-  resources :users, only: [:show]
+  resources :users, only: [:index, :show]
   resources :diaries
   resources :favorites, only: [:index, :destroy]
   namespace :admin do
