@@ -1,29 +1,47 @@
-<h1></h1>
-<h3>水銀（単位：％）</h3><p>目標：100%未満</p>
-<% if @total_mercury >= 100 %>
-<%= column_chart({ "水銀（直近7日）" => @total_mercury }, max: 100,width: "400px", height: "300px", colors: ["#b00"]) %>
-<% elsif @total_mercury >= 50 %>
-<%= column_chart({ "水銀（直近7日）" => @total_mercury }, max: 100, width: "400px", height: "300px", colors: ["#fe0"]) %>
-<% else %>
-<%= column_chart({ "水銀（直近7日）" => @total_mercury }, max: 100, width: "400px", height: "300px", colors: ["#009000"]) %>
-<% end %>
-<h3>n-3系脂肪酸（単位：g）</h3><p>目標：11g</p>
-<% if @total_n3_oil >= 11 %>
-<%= "きちんと摂れています！" %>
-<%= column_chart({ "n-3系脂肪酸（直近7日）" => @total_n3_oil }, width: "400px", height: "300px", colors: ["#00f"]) %>
-<% elsif @total_n3_oil >= 5.5 %>
-<%= column_chart({ "n-3系脂肪酸（直近7日）" => @total_n3_oil }, max: 11, width: "400px", height: "300px", colors: ["#37f"]) %>
-<% else %>
-<%= column_chart({ "n-3系脂肪酸（直近7日）" => @total_n3_oil }, max: 11, width: "400px", height: "300px", colors: ["#80aaff"]) %>
-<% end %>
-<%= button_to '今食べたおさかな登録',new_diary_path, method: :get %>
-<%= month_calendar events: @diaries do |date, diaries| %>
-  <%= link_to date.day, diary_path(date.strftime('%Y-%m-%d')) %>
-  <br>
-  <% diaries.each do |diary| %>
-    <span class="diary-fish-name">
-      <%= diary.fish.name %>
-    </span>
-    <br>
-  <% end %>
-<% end %>
+<h2></h2>
+<div class="content">
+  <div class="chart">
+    <h3 class="chart-title">水銀<span class="unit">（単位：％）</span></h3>
+      <div class="mercury-chart">
+        <p class="target">目標：100%未満</p>
+        <% if @total_mercury >= 100 %>
+        <p class="message-on-chart"><%= "超えています" %></p>
+        <%= column_chart({ "水銀（直近7日）" => @total_mercury }, colors: ["#b00"], backgroundColor: "#fff") %>
+        <% elsif @total_mercury >= 50 %>
+        <p class="message-on-chart"><%= "摂りすぎは控えましょう" %></p>
+        <%= column_chart({ "水銀（直近7日）" => @total_mercury }, max: 100, colors: ["#fe0"]) %>
+        <% else %>
+        <p class="message-on-chart"><%= "問題ありません" %></p>
+        <%= column_chart({ "水銀（直近7日）" => @total_mercury }, max: 100, colors: ["#009000"]) %>
+        <% end %>
+        </div>
+        <br>
+    <h3 class="chart-title">n-3系脂肪酸<span class="unit">（単位：g）</span></h3>
+      <div class="n3-chart">
+        <p class="target">目標：11g</p>
+        <% if @total_n3_oil >= 11 %>
+        <p class="message-on-chart"><%= "きちんと摂れています" %></p>
+        <%= column_chart({ "n-3系脂肪酸（直近7日）" => @total_n3_oil }, colors: ["#00f"]) %>
+        <% elsif @total_n3_oil >= 5.5 %>
+        <p class="message-on-chart"><%= "目標まであと少し" %></p>
+        <%= column_chart({ "n-3系脂肪酸（直近7日）" => @total_n3_oil }, max: 11, colors: ["#37f"]) %>
+        <% else %>
+        <p class="message-on-chart"><%= "少ないです" %></p>
+        <%= column_chart({ "n-3系脂肪酸（直近7日）" => @total_n3_oil }, max: 11, colors: ["#80aaff"]) %>
+        <% end %>
+      </div>
+    </div>
+    <div class="calendar">
+      <%= button_to '今食べたおさかな登録',new_diary_path, method: :get %>
+    <%= month_calendar events: @diaries do |date, diaries| %>
+      <%= link_to date.day, diary_path(date.strftime('%Y-%m-%d')) %>
+      <br>
+      <% diaries.each do |diary| %>
+        <span class="diary-fish-name">
+          <%= diary.fish.name %>
+        </span>
+        <br>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
