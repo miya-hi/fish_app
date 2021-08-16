@@ -1,4 +1,4 @@
-<h2>食べたおさかな登録</h2>
+<h2>おさかな登録</h2>
 <%= form_with(model: @diary, local: true) do |form| %>
 <% if @diary.errors.any? %>
     <div id="error_explanation">
@@ -10,31 +10,50 @@
     </div>
   <% end %>
 <%= form.hidden_field :input_at %>
-<ul>
-  <h4>魚を選択 一覧またはお気に入りから</h4>
-  <h5>魚の一覧から選択</h5>
-  <div class="field">
-    <%= select_tag'diary[line]',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %>
-    <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name), {include_blank: '一覧から選択する'} %>
-    <div id="fish_content"></div>
+<br>
+  <div>
+    <h5>魚を選択 一覧またはお気に入りから</h5>
+    <div class="content">
+    <ul class="fish_content">
+      <li>一覧</li>
+        <li class="field">
+          <%= select_tag'diary[line]',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %>
+          <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name), {include_blank: '選択して下さい'} %></li>
+        <li id="fish_content"></li>
+      </ul>
+      <ul class="fish_content">
+      <li>お気に入り</li>
+        <li class="field">
+          <%= select_tag'favorite[fish_id]',options_from_collection_for_select(@favorite_fishes, :id, :name),{include_blank: '選択して下さい'} %></li>
+          <li id="favorite_content"></li>
+          </ul>
+      </div>
+      <div class="field">
+        <%= form.label :favorite %>
+        <%= check_box_tag('register_favorite', true) %>
+      </div>
+      <br>
+  <div class="content">
+    <div>
+      <h5><%= form.label :amount %><span>を入力</span><h5>
+          <%= form.text_field :amount %><span>g</span>
+          </div>
+    <div class="fish_content">
+      <h6>量の目安</h6>
+      <ul>
+        <li>1切れ 80g</li>
+        <li>小さな魚などは 選択タブ下に表示</li>
+        <li>缶詰は 商品の表示をご覧下さい</li>
+      </ul>
+    </div>
   </div>
-  <h5>お気に入りから選択</h5>
-  <div class="field">
-    <%= select_tag'favorite[fish_id]',options_from_collection_for_select(@favorite_fishes, :id, :name),{include_blank: 'お気に入りから選択する'} %>
-    <div id="favorite_content"></div>
-  </div>
-  <div class="field">
-    <%= form.label :量 %>
-    <%= form.text_field :amount %><span>g</span>
-  </div>
-  <div class="field">
-    <%= form.label :選択した魚をお気に入り登録 %>
-    <%= check_box_tag('register_favorite', true) %>
-  </div>
+  <br>
   <div class="submit">
     <%= form.submit "登録"%>
   </div>
+  </div>
 <% end %>
+<br>
   <%= link_to "お気に入り削除", favorites_path, target: :_blank  %>
 <script>
   $(function() {
