@@ -53,6 +53,9 @@ ul {
 li {
   list-style: none;
 }
+ol li{
+  list-style-type: decimal;
+}
 // br {
 // display: block;
 // content: "";
