@@ -53,7 +53,7 @@ Fish.create!(name: "さば(ﾉﾙｳｪｰ産)", line: "さ", n3_oil: 6.56, vita
 Fish.create!(name: "真さば", line: "ま", n3_oil: 2.12, vitamin_a: 37, mercury: nil, content: "", image: "")
 Fish.create!(name: "ごまさば", line: "こ", n3_oil: 1.21, vitamin_a: 8, mercury: nil, content: "", image: "")
 Fish.create!(name: "クロムツ", line: "く", n3_oil: 0.63, vitamin_a: 8, mercury: 62.5, content: "", image: "")
-Fish.create!(name: "コビレゴンドウ", line: "こ", n3_oil: 0, vitamin_a: 250, mercury: nil, content: "", image: "")
+Fish.create!(name: "コビレゴンドウ", line: "こ", n3_oil: 0, vitamin_a: 0, mercury: 250, content: "", image: "")
 Fish.create!(name: "ノルウェーさば", line: "の", n3_oil: 6.56, vitamin_a: 44, mercury: nil, content: "", image: "")
 Fish.create!(name: "さば 缶詰", line: "さ", n3_oil: 2.73, vitamin_a: 0, mercury: nil, content: "", image: "")
 Fish.create!(name: "さわら", line: "さ", n3_oil: 1.70, vitamin_a: 12, mercury: nil, content: "", image: "")
