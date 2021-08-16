@@ -1,8 +1,7 @@
-<h1>食べたおさかな登録</h1>
+<h2>食べたおさかな登録</h2>
 <%= form_with(model: @diary, local: true) do |form| %>
 <% if @diary.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @diary.errors.count %>件のエラーがあります。</h2>
       <ul>
       <% @diary.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

@@ -68,6 +68,7 @@
         </td>
       </tr>
     </table>
+    <%= link_to '追加で登録',new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), method: :get %>
 <% else %>
 <h1><%= @input_at.strftime("%m月%d日") %></h1>
 記録がありません

@@ -104,19 +104,30 @@ li {
   margin-top: 10px;
   padding: 0
 }
-.alert-error {
+.alert-error  {
   display:inline-block;
-  margin: 0 auto;
+  // padding: 3px 5px;
   background-color: #B0D5EC;
   // border-color: #6C90C0;
   color: #2C4667;
 }
 .alert-notice {
   display:inline-block;
+  // padding: 3px 5px;
   background-color: #B0D5EC;
   // border-color: #6C90C0;
   color: #2C4667;
 }
+#error_explanation h2{
+  font-size: 0;
+}
+#error_explanation ul {
+  text-align: center;
+  background-color: #B0D5EC;
+  // border-color: #6C90C0;
+  color: #2C4667;
+}
+
 .content {
   display: flex;
   // width:

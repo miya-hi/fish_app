@@ -2,7 +2,6 @@
 <%= form_with model: @fish, url: admin_fish_path, local: true, method: :put do |form| %>
 <% if @fish.errors.any? %>
   <div id="error_explanation">
-    <h2><%= @fish.errors.count %>件のエラーがあります</h2>
     <ul>
     <% @fish.errors.full_messages.each do |message| %>
       <li><%= message %></li>
