@@ -13,7 +13,7 @@
   </head>
   <body>
     <% if user_signed_in? %>
-      <header class="page-header wrapper">
+      <header class="page-header">
         <h1 class="logo"><%= link_to "おさかなモニター", diaries_path %></h1>
           <nav class="main-nav">
               <ul class="nav-left rounded">
@@ -31,7 +31,7 @@
       </header>
       <div class="how-to-use"><%= link_to "このアプリについて", tops_help_path %></div>
     <% else %>
-      <header class="page-header wrapper">
+      <header class="page-header">
         <h1 class="logo"><%= link_to "おさかなモニター", root_path %></h1>
         <nav class="main-nav">
           <ul class="nav-left rounded">
@@ -45,13 +45,17 @@
         </nav>
       </header>
     <% end %>
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-    <%= yield %>
+    <div class="message">
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
+    </div>
+    <div class ="wrapper">
+      <%= yield %>
+    </div>
     <footer>copyright&copy; 2021 おさかなモニター All Rights Reserved.</footer>
   </body>
 </html>
