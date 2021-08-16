@@ -140,6 +140,9 @@ li {
   display: flex;
   // width:
 }
+.row-content div{
+  float: left;
+}
 .chart {
   display: flex;
   flex-direction: column;

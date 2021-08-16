@@ -1,76 +1,92 @@
 <% if @diaries.size > 0 %>
-<h1><%= @diaries.first.input_at.strftime("%m月%d日") %>に食べたおさかな</h1>
-  <% @diaries.each do |diary| %>
-    <table>
-      <tr>
-        <td><%= diary.fish.name %></td>
-        <td><%= diary.amount %>g</td>
-      </tr>
-      <tr>
-        <td>n-3系脂肪酸</td>
-        <td><%= diary.fish_n3_oil %>g 目安量:1.6g</td>
-      </tr>
-      <tr>
-        <td>水銀</td>
-        <td><%= diary.fish_mercury %>% 1週間の上限量:100%</td>
-      </tr>
-      <tr>
-        <td>ビタミンA</td>
-        <td><%= diary.fish_vitamin_a %>μgRAE 推奨量:650~700μgRAE</td>
-      </tr>
-      <tr>
-        <td><%= button_to'編集',edit_diary_path(diary.id), method: :get %></td>
-        <td><%= button_to'削除',diary_path(diary.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-      </tr>
-    </table>
-  <% end %>
+<h2><%= @diaries.first.input_at.strftime("%m月%d日") %>おさかな記録</h2>
+<%= link_to '追加で登録',new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), method: :get %>
+  <h3>おさかなの詳細</h3>
+<% @diaries.each do |diary| %>
+  <table>
+    <tr>
+      <td><%= diary.fish.name %></td>
+      <td><%= diary.amount %>g</td>
+    </tr>
+    <tr>
+      <td>n-3系脂肪酸</td>
+      <td><%= diary.fish_n3_oil.round(1) %>g</td>
+    </tr>
+    <tr>
+      <td>水銀</td>
+      <td><%= diary.fish_mercury.round %>%</td>
+    </tr>
+    <tr>
+      <td>ビタミンA</td>
+      <td><%= diary.fish_vitamin_a %>μgRAE</td>
+    </tr>
+    <tr>
+      <td><%= button_to'編集',edit_diary_path(diary.id), method: :get %></td>
+      <td><%= button_to'削除',diary_path(diary.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    </tr>
+  </table>
+
+    <% end %>
+  <h3>この日の合計</h3>
+  <h4>n-3系脂肪酸</h4>
   <table>
     <% total_n3_oil = @diaries.sum{|f| f.fish_n3_oil} %>
     <tr>
-      <td>n-3系脂肪酸の合計 <%= total_n3_oil %>g</td>
-      <td>目安量 1.6g</td>
+      <th>合計</th>
+      <th>アドバイス</th>
     </tr>
       <tr>
-        <td colspan="2">
+        <td><%= total_n3_oil.round(1) %>g / 1日の目安量 1.6g<br>(トップページのグラフは、直近1週間の合計)</td>
+        <td>
           <% if total_n3_oil >= 1.6 %>
-            <%= "きちんと摂れています。" %>
+            <%= "きちんと摂れています" %>
           <% else %>
-            <%= "n-3系脂肪酸は、特に青魚に多く含まれています。また、サプリメントを活用するのもいいでしょう" %>
+            <%= "n-3系脂肪酸は、特に青魚に多く含まれています。また、サプリメントやアマニ油・エゴマ油など活用するのもいいでしょう" %>
           <% end %>
         </td>
       </tr>
+      </table>
       <% total_mercury = @diaries.sum{|f| f.fish_mercury} %>
+      <h4>水銀</h4>
+        <table>
       <tr>
-        <td>水銀の合計 <%= total_mercury %>％</td>
-        <td>１週間の上限量 100%</td>
+        <td>合計</td>
+        <td>アドバイス</td>
       </tr>
       <tr>
-        <td colspan="2">
+        <td><%= total_mercury.round %>％ / １週間の上限100%</td>
+        <td>
           <% if total_mercury >= 100 %>
-            <%= "水銀が多いです。今後しばらくは、水銀の多いおさかなを控えましょう。" %>
+            <%= "水銀が多いため、今後しばらくは水銀の多いおさかなを控えましょう" %>
           <% else %>
-            <%= "前後１週間の合計を、グラフで確認してみましょう。" %>
+            <%= "この日の摂取量は基準値内です。前後１週間の合計を、グラフで確認してみましょう" %>
           <% end %>
         </td>
       </tr>
+      </table>
+      <table>
+        <h4>ビタミンA</h4>
       <% total_vitamin_a = @diaries.sum{|f| f.fish_vitamin_a} %>
+
       <tr>
-        <td>ビタミンAの合計 <%= total_vitamin_a %>μgRAE</td>
-        <td>推奨量 650~700μgRAE</td>
+        <td>合計</td>
+        <td>アドバイス</td>
       </tr>
       <tr>
-        <td colspan="2">
+        <td><%= total_vitamin_a %>μgRAE / 1日の推奨量 650~700μgRAE</td>
+        <td>
           <% if total_vitamin_a >= 700 %>
-            <%= "ビタミンAが多いです。特に妊娠初期は摂りすぎに気をつけましょう。。" %>
+            <%= "ビタミンAが多いです。特に妊娠初期は、動物性ビタミンAの摂りすぎに気をつけましょう" %>
           <% else %>
-            <%= "ビタミンAが多すぎることはありません。" %>
+            <%= "ビタミンAが多すぎることはありません" %>
           <% end %>
         </td>
       </tr>
     </table>
-    <%= link_to '追加で登録',new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), method: :get %>
+    <br>
+    <%= link_to "ホームへ戻る",diaries_path %>
 <% else %>
-<h1><%= @input_at.strftime("%m月%d日") %></h1>
+<h2><%= @input_at.strftime("%m月%d日") %></h2>
 記録がありません
   <%= link_to 'この日食べたおさかなを登録',new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), method: :get %>
 <% end %>
