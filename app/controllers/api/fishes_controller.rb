@@ -1,11 +1,14 @@
 class Api::FishesController < Api::BaseController
+
   def index
     if params[:line].present?
       @fishes = Fish.where(line: to_kana_line_list(params[:line])).order(line: :asc).all
     else
-      render json: { error: '選択してください' }, status: :bad_request and return
+      render json: { error: '選択してください' }, status: :bad_request
+      return 
     end
   end
+
   def show
     @fish = Fish.find(params[:id])
   end
@@ -37,6 +40,3 @@ class Api::FishesController < Api::BaseController
     end
   end
 end
-
-# empty nilかどうか
-# blank 空文字はOK

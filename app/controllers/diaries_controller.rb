@@ -23,13 +23,13 @@ class DiariesController < ApplicationController
     @diary = current_user.diaries.build(diary_params)
     @diary.input_at = Date.today if @diary.input_at.blank?
     if @diary.save
-    if params[:register_favorite] == "true"
-      current_user.favorites.where(fish_id: @diary.fish_id).first_or_create
-    end
-    redirect_to diary_path(@diary.input_at.strftime('%Y-%m-%d')), notice: "作成しました" and return
-  else
+        if params[:register_favorite] == "true"
+          current_user.favorites.where(fish_id: @diary.fish_id).first_or_create
+        end
+      redirect_to diary_path(@diary.input_at.strftime('%Y-%m-%d')), notice: "作成しました"
+    else
     render :new
-  end
+    end
   end
 
   def show
