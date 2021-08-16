@@ -19,9 +19,11 @@
 <%= button_to '今食べたおさかな登録',new_diary_path, method: :get %>
 <%= month_calendar events: @diaries do |date, diaries| %>
   <%= link_to date.day, diary_path(date.strftime('%Y-%m-%d')) %>
+  <br>
   <% diaries.each do |diary| %>
-    <div>
+    <span class="diary-fish-name">
       <%= diary.fish.name %>
-    </div>
+    </span>
+    <br>
   <% end %>
 <% end %>

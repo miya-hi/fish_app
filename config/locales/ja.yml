@@ -1,4 +1,8 @@
 ja:
+  simple_calendar:
+     previous: " << "
+     next: " >> "
+     week: 週
   activerecord:
     errors:
       messages:

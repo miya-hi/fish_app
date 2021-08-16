@@ -15,6 +15,7 @@
  *= require_self
  */
  @import 'bootstrap';
+ // @import "custom";
 .nikukyu {
   font-family: "Nico Moji";
   font-size: 30px;
@@ -26,8 +27,87 @@
   padding: 0;
 }
 body {
+  color: #333333;
   font-family:"Muli","M PLUS Rounded 1c";
+}
+a {
+  color: #4c4c4c;
+  text-decoration: none;
+}
+a:hover {
+  color: #FFB6B6
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
 }
 .field_with_errors {
   display: contents;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+}
+.logo {
+  flex: 2;
+  margin-left: 25px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 50px;
+}
+// .main-nav { flex: 3; }
+.main-nav {
+    flex: 5;
+    margin-left: 7px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    align-items: center;
+    border-bottom: dotted 8px #ccbba8;
+}
+.main-nav li {
+    padding: 10px;
+    margin-left: 7px;
+}
+.nav-right {
+  display: flex;
+}
+// // .nav-button {
+// //   background-color: #B0D5EC;
+// // }
+// // .nav-button a {
+// //   color: #fff;
+// }
+.how-to-use {
+  padding: 0;
+  margin-left: 50px;
+  font-size: 1.25rem;
+}
+.alert-error {
+  display:inline-block;
+  background-color: #B0D5EC;
+  // border-color: #6C90C0;
+  color: #2C4667;
+  margin: 20px;
+  text-align: left;
+}
+.alert-notice {
+  display:inline-block;
+  background-color: #B0D5EC;
+  // border-color: #6C90C0;
+  color: #2C4667;
+  margin: 20px;
+  text-align: left;
+}
+footer {
+  // border-top: dotted 4px #A88C6A;
+  // color: #fff;
+  text-align: center;
+  background-color: #B0D5EC;
 }

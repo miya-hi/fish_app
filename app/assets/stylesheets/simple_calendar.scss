@@ -1,0 +1,48 @@
+.simple-calendar {
+  width: 70%;
+  a {
+    color: #0076e5;
+  }
+  .day {
+    height: 10vh;
+    padding: 5px;
+    background-color: white;
+    border-color: #a9a9a9;
+  }
+  .day_of_week{
+    width: 10%;
+    text-align: center;
+    border-color: #a9a9a9;
+  }
+  .date-wtapper{
+
+  }
+  .wday-0 {
+    background-color: #FFEFF2;
+    border-color: #b0c4dek;
+  }
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {
+    background-color: #e1f5fa;
+  }
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {
+    background-color: #dbdbdb;
+  }
+  .next-month {
+    background-color: #dbdbdb;
+   }
+  .current-month {}
+
+  .has-events {}
+}
