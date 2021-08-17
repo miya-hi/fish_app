@@ -1,4 +1,5 @@
 class Admin::FishesController < ApplicationController
+  before_action :authenticate_user!
   before_action :if_not_admin
   before_action :set_fish, only: [:edit, :update, :show, :destroy]
 
@@ -42,7 +43,9 @@ class Admin::FishesController < ApplicationController
   private
 
   def if_not_admin
-    redirect_to root_path unless current_user.admin?
+    unless current_user && current_user.admin?
+      redirect_to diaries_path, notice: "アクセス権限がありません"
+    end
   end
 
   def fish_params
