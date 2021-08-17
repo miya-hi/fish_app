@@ -1,9 +1,19 @@
 <h1>おさかなの編集</h1>
 <%= form_with(model: @diary, local: true) do |form| %>
+<% if @diary.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @diary.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form.hidden_field :input_at %>
   <div class="field">
     <%= select_tag'diary[line]',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %></td>
-    <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name, @diary.fish.id) %>
-    <textarea name='content'></textarea>
+    <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name ,{selected: @diary.fish.id}) %>
+    <li id="fish_content"></li>
   </div>
   <div class="field">
     <%= form.label :量 %>
@@ -23,11 +33,22 @@
       }).then(function(data) {
         console.log('data=%o', data);
         const $nameSelect = $('#diary_fish_id');
-        $nameSelect.find('option').remove();
+        $nameSelect.find('option[value!=""]').remove();
         data.fishes.forEach(function(fish) {
           $nameSelect.append('<option value="' + fish.id + '">' + fish.name + '</option>');
         });
       });
     });
+    $('#diary_fish_id').change(function() {
+      const fishId = $(this).val();
+      if (!fishId) return;
+      $.get({
+        url: '/api/fishes/' + fishId + '.json',
+      }).then(function(data) {
+        const fish = data.fish;
+        $('#fish_content').text(fish.content);
+      })
+    });
   });
+
   </script>

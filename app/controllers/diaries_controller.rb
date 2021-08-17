@@ -20,7 +20,7 @@ class DiariesController < ApplicationController
   def create
     @fishes = Fish.all
     @favorite_fishes = current_user.favorite_fishes
-    @diary = current_user.diaries.build(diary_params)
+    @diary = current_user.diaries.build(diary_favorite_params)
     @diary.input_at = Date.today if @diary.input_at.blank?
     if @diary.save
         if params[:register_favorite] == "true"
@@ -42,8 +42,9 @@ class DiariesController < ApplicationController
   end
 
   def update
+    @fishes = Fish.all
     if @diary.update(diary_params)
-      redirect_to diaries_path, notice:"編集しました"
+      redirect_to diary_path(@diary.input_at.strftime('%Y-%m-%d')), notice:"編集しました"
     else
       render :edit
     end
@@ -57,6 +58,9 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
+    params.require(:diary).permit(:fish_id, :amount, :input_at)
+  end
+  def diary_favorite_params
     if params[:favorite][:fish_id].present?
       params[:diary][:fish_id] = params[:favorite][:fish_id]
     end
