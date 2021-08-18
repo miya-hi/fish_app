@@ -1,29 +1,56 @@
 <div class="wrapper">
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-    <div class="field">
-      <%= form.label :line %>
-      <%= form.text_field :line %>
-    </div>
-    <div class="field">
-      <%= form.label :n3_oil %>
-      <%= form.text_field :n3_oil %>
-    </div>
-    <div class="field">
-      <%= form.label :vitamin_a %>
-      <%= form.text_field :vitamin_a %>
-    </div>
-    <div class="field">
-      <%= form.label :mercury %>
-      <%= form.text_field :mercury %>
-    </div>
-    <div class="field">
-      <%= form.label :content %>
-      <%= form.text_area :content %>
-    </div>
-    <div class="actions">
+  <div class="form">
+    <ul>
+      <li>
+        <dl>
+          <dt><%= form.label :name %><dt>
+          <dd><%= form.text_field :name %></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <dl>
+          <dt><%= form.label :line %></dt>
+          <dd><%= form.text_field :line %></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <dl>
+          <dt><%= form.label :n3_oil %> (g)</dt>
+          <dd><%= form.text_field :n3_oil %></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <dl>
+          <dt><%= form.label :vitamin_a %> (μgRAE)</dt>
+          <dd><%= form.text_field :vitamin_a %></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <dl>
+          <dt><%= form.label :mercury %> (%)</dt>
+          <dd><%= form.text_field :mercury %></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <dl>
+          <dt><%= form.label :content %></dt>
+          <dd><%= form.text_area :content %></dd>
+        </dl>
+      </li>
+    </ul>
+
+    <div class="actions button_to">
       <%= form.submit %>
     </div>
   </div>
+</div>

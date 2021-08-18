@@ -40,6 +40,11 @@ body {
     margin: 0 auto;
     padding: 0 4%;
 }
+h2 {
+  margin: 20px;
+  text-align: center;
+  // font-family: "メイリオ";
+}
 a {
   color: #4c4c4c;
   text-decoration: none;
@@ -53,17 +58,37 @@ ul {
 li {
   list-style: none;
 }
-ol li{
+ol li {
   list-style-type: decimal;
 }
+.form dl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  // font-family: "メイリオ";
+}
+label {
+    font-weight: normal;
+}
+.form dt {
+  margin-right: 10px;
+}
+.button_to {
+  text-align: center;
+  margin: 5px;
+}
+// .field {
+//   text-align: center;
+// }
 // br {
 // display: block;
 // content: "";
 // margin: 3px 0;
 // }
-.field label {
-  margin: 0;
-}
+// .field label {
+//   margin: 10px;
+// }
 .field_with_errors {
   display: contents;
 }

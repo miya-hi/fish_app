@@ -1,4 +1,4 @@
-<h1>《管理者ページ》魚の編集</h1>
+<h2>《 管理者ページ 》魚の編集</h2>
 <%= form_with model: @fish, url: admin_fish_path, local: true, method: :put do |form| %>
 <% if @fish.errors.any? %>
   <div id="error_explanation">
@@ -12,4 +12,5 @@
 <%= render partial: 'form', locals: { form: form } %>
 <% end %>
 <%= button_to 'この魚を削除', admin_fish_path(@fish.id), method: :delete %>
+<br>
 <%= link_to '戻る', admin_fishes_path %>

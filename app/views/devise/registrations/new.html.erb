@@ -1,31 +1,41 @@
 <h2>ユーザー登録</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, placeholder: "5文字以上" %>
+  <div class="form">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <ul>
+        <li>
+          <dl>
+            <dt><%= f.label :name %></dt>
+            <dd><%= f.text_field :name, autofocus: true, placeholder: "5文字以上" %></dd>
+          </dl>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <dl>
+            <dt><%= f.label :password %></dt>
+            <dd><%= f.password_field :password, placeholder: "6文字以上" %></dd>
+          </dl>
+      </li>
+      </ul>
+      <ul>
+        <li>
+          <dl>
+            <dt><%= f.label :password_confirmation%></dt>
+            <dd><%= f.password_field :password_confirmation, autocomplete: "new-password" %></dd>
+          </dl>
+        </li>
+      <ul>
+      <ul>
+        <li>
+          <dl>
+            <dt><%= f.label :baby_due_on %></dt>
+            <dd><%= f.date_select :baby_due_on, use_month_numbers: true, include_blank: true, selected: Date.today, start_year: (Time.now.year), end_year: (Time.now.year + 1) %></dd>
+          </dl>
+        </li>
+      </ul>
+      <div class="action button_to">
+        <%= f.submit "登録" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <% end %><br />
-    <%= f.password_field :password, placeholder: "6文字以上" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation%><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :baby_due_on %><br />
-    <%= f.date_select :baby_due_on, use_month_numbers: true, include_blank: true, selected: Date.today, start_year: (Time.now.year), end_year: (Time.now.year + 1) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "登録" %>
-  </div>
-<% end %>
