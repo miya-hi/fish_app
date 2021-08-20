@@ -1,8 +1,9 @@
 .simple-calendar {
   width: 100%;
-  padding: 5px 10px;
-  background-color: #FFB6B6;
-  border-radius: 15px 25px 25px 15px;
+  padding: 8px 15px;
+  // background-color: #ffd1d1;
+  // border: solid 2px #FFB6B6;
+  border-radius: 2px 3px 3px 2px;
   a {
     color: #4f4f4f;
   }
@@ -22,17 +23,17 @@
     height: 10vh;
     padding: 5px;
     background-color: white;
-    border-color: #c0c0c0;
+    border-color: #a5a5a5;
   }
   .day a {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   .day_of_week{
     width: 14.2%;
     font-size: 1.1rem;
     text-align: center;
     background-color: #fff;
-    border-color: #c0c0c0;
+    border-color: #a5a5a5;
   }
   .date-wtapper{
 
