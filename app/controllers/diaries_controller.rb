@@ -26,7 +26,7 @@ class DiariesController < ApplicationController
         if params[:register_favorite] == "true"
           current_user.favorites.where(fish_id: @diary.fish_id).first_or_create
         end
-      redirect_to diary_path(@diary.input_at.strftime('%Y-%m-%d')), notice: "作成しました"
+      redirect_to diaries_path, notice: "作成しました"
     else
     render :new
     end
@@ -39,10 +39,13 @@ class DiariesController < ApplicationController
 
   def edit
     @fishes = Fish.all
+    @favorites = current_user.favorites
+    @favorite_fishes = current_user.favorite_fishes
   end
 
   def update
     @fishes = Fish.all
+    @favorite_fishes = current_user.favorite_fishes
     if @diary.update(diary_params)
       redirect_to diary_path(@diary.input_at.strftime('%Y-%m-%d')), notice:"編集しました"
     else

@@ -1,4 +1,5 @@
-<h2>《 管理者ページ 》新しい魚の登録</h2>
+<h2>《管理者ページ》新しい魚の登録</h2>
+<div class="wrapper">
 <%= form_with model: @fish, url: admin_fishes_path, local: true, method: :post do |form| %>
 <% if @fish.errors.any? %>
   <div id="error_explanation">
@@ -11,3 +12,4 @@
 <% end %>
 <%= render partial: 'form', locals: { form: form } %>
 <% end %>
+</div>

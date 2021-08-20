@@ -1,0 +1,82 @@
+.chart {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  background-color: #FFB6B6;
+  border: solid 2px #FFB6B6;
+  border-radius: 20px 10px 30px 40px;
+  margin-right: 30px;
+  padding: 10px;
+  // height: 800px;
+}
+.chart-title {
+  text-align: center;
+  font-size: 1.4rem;
+
+}
+.unit {
+  // font-size: 1.2rem;
+}
+.target{
+  text-align: center;
+  // font-size: 1.2rem;
+}
+.message-on-chart {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ff8282;
+}
+.mercury-chart {
+  background-color: #fff;
+  border-radius: 5px;
+}
+.n3-chart {
+  background-color: #fff;
+  border-radius: 5px;
+}
+// .mercury-chart canvas{
+//   background-color: #fff;
+// }
+// .n3-chart canvas {
+//   background-color: white;
+// }
+.calendar {
+  min-width: 900px;
+}
+.fish-register {
+  // background-color: #B0D5EC;
+  padding :1rem 1rem 0.5rem 1rem;
+  border: solid 6px #B0D5EC;
+  border-radius: 15px;
+}
+.fish_wrapper {
+display: flex;
+justify-content: flex-start;
+padding: 0.6rem;
+border-bottom: solid 5px #B0D5EC;
+// background-color: #fff;
+// border-radius: 20px;
+}
+.fish_content{
+    margin-right: 40px;
+}
+.fish-amount {
+  padding: 0.3rem;
+  margin-left: 15px;
+  border: solid 1px #c0c0c0;
+  background-color: #fff;
+  border-radius: 3px;
+}
+.show-wrapper {
+  border: solid 6px #ccbba8;
+  border-radius: 15px;
+}
+.show-of-fish td {
+  padding: 0.3rem 0.7rem;
+  border-top: solid 2px #ccbba8;
+}
+.advice {
+  width: 25rem;
+  font-size: 0.9rem;
+  text-align: left;
+}

@@ -1,4 +1,3 @@
-<h2></h2>
 <div class="content">
   <div class="chart">
     <h3 class="chart-title">水銀<span class="unit">（単位：％）</span></h3>
@@ -32,7 +31,8 @@
       </div>
     </div>
     <div class="calendar">
-      <%= button_to '今食べたおさかな登録',new_diary_path, method: :get %>
+      <%= button_to '  食べた?   > 〈 ゜',new_diary_path, {method: :get, class: "mybutton"} %>
+      <br>
     <%= month_calendar events: @diaries do |date, diaries| %>
       <%= link_to date.day, diary_path(date.strftime('%Y-%m-%d')) %>
       <% if date == current_user.baby_due_on %>

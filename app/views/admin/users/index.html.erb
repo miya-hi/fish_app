@@ -1,13 +1,14 @@
-<h1>《管理者ページ》</h1>
+<h2>《管理者ページ》</h2>
+<br>
 <h3>魚の一覧・編集</h3>
 <%= button_to '魚の一覧へ', admin_fishes_path, method: :get %>
 <br>
 <h3>ユーザー情報</h3>
 <table>
   <tr>
-    <th>ニックネーム</th>
-    <th>管理者権限 (有:○ 無:×)</th>
-    <th></th>
+    <th class="border-btm">ニックネーム</th>
+    <th class="border-btm">管理者権限 (有:○ 無:×)</th>
+    <th class="border-btm"></th>
   </tr>
 <% @users.each do |user| %>
   <tr>

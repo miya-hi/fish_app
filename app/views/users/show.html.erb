@@ -1,28 +1,45 @@
-<h1><%= current_user.name %>さん</h1>
+<h3><%= current_user.name %>さん</h3>
+
 <% if current_user.baby_due_on %>
   <% date=(Date.today - current_user.baby_due_on + 280).to_int %>
-  <p>妊娠<%= date/7 %>週<%= date%7 %>日</p>
-  <p><%= image_tag 'baby.jpg', class: 'user_baby' %>予定日まで あと<%= (current_user.baby_due_on-Date.today).to_int %>日</p>
+<div class="user-due">
+<ul>
+  <li><%= image_tag 'baby.jpg', class: 'user-baby' %></li>
+</ul>
+<ul>
+  <li>妊娠<%= date/7 %>週<%= date%7 %>日</li>
+  <li>予定日まで あと<%= (current_user.baby_due_on-Date.today).to_int %>日</li>
+</ul>
+</div>
 <% end %>
+<h4 class="vertical-left">ユーザー情報</h4>
 <table>
-  <tr>
+  <thead>
+  <tr class="user-info">
     <th>ニックネーム</th><td><%= current_user.name %></td>
+
   </tr>
-  <tr>
-    <th>出産予定日</th>
+</thead>
+<tbody>
+  <tr class="user-info">
+  <th>出産予定日</th>
     <td>
-      <% if current_user.baby_due_on != false %>
+      <% if current_user.baby_due_on == nil %>
         <%= '登録なし' %>
       <% else %>
-      <%= current_user.baby_due_on %>
+      <%= current_user.baby_due_on.strftime('%Y年%m月%d日') %>
       <% end %>
     </td>
   </tr>
-  <tr>
-    <td colspan="2"><%= button_to "ユーザー情報を編集する", edit_user_registration_path, method: :get %></td>
-  </tr>
+
+</tbody>
 
 </table>
-<h3>おさかなモニターの退会</h3>
 
-<p><%= button_to "退会する", user_registration_path, data: { confirm: "ユーザーの情報とおさかなの記録が削除されますが、よろしいですか?" }, method: :delete %></p>
+  <div>
+    <%= button_to "編集する", edit_user_registration_path, method: :get, class: "button" %>
+  </div>
+  <br><br>
+<h5 class="vertical-center">おさかなモニターをやめる</h5>
+
+<div><%= button_to "やめる", user_registration_path, data: { confirm: "ユーザーとおさかなの記録が削除されますが、よろしいですか?" }, method: :delete, class: "button" %></div>

@@ -1,24 +1,17 @@
 <h2>ログイン</h2>
-<div class="form">
+
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <ul>
-      <li>
-        <dl>
-          <dt><%= f.label :name %></dt>
-          <dd><%= f.text_field :name, autofocus: true, autocomplete: "name" %></dd>
-        </dl>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <dl>
-          <dt><%= f.label :password %></dt>
-          <dd><%= f.password_field :password, autocomplete: "current-password" %></dd>
-        </dl>
-      </li>
-    </ul>
-    <div class="actions">
+  <table class="form">
+        <tr>
+          <th><%= f.label :name %></th>
+          <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :password %></th>
+          <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+        </tr>
+  </table>
+    <div class="actions button_to">
       <%= f.submit "ログイン" %>
     </div>
   <% end %>
-</div>

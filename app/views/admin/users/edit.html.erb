@@ -1,20 +1,15 @@
-<h1>《管理者ページ》管理者権限の編集</h1>
-<h3></h3>
-  <table>
-    <tr>
-      <th>ニックネーム</th>
-      <th>管理者権限 付与/解除</th>
-    </tr>
-    <tr>
-      <td><%= @user.name %></td>
+<h2>《管理者ページ》管理者権限の編集</h2>
+<br>
+    <h3><%= @user.name %>さん</h3>
       <%= form_with(model: @user, url: admin_user_path, method: :patch, local: true) do |f| %>
-      <td><% f.label :admin %>
-        <%= f.check_box :admin, checked: @user.admin == true %></td>
-    </tr>
-    <tr>
-      <td colspan=2""><%= f.submit '変更する' %></td>
-    </tr>
+        <dl>
+          <dt>管理者権限 付与/解除</dt>
+          <dd>
+            <% f.label :admin %>
+            <%= f.check_box :admin, { checked: @user.admin == true, class:"checkbox"} %>
+          </dd>
+        </dl>
+      <div class="button_to"><%= f.submit '変更する' %></div>
       <% end %>
-  </table>
   <br>
   <%= link_to '戻る', admin_users_path, method: :get %>

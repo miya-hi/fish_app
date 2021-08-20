@@ -1,56 +1,40 @@
-<h2><%= current_user.name %>さん</h2>
-<h2>ユーザー情報の変更</h2>
-<p>変更したい項目を、入力または選択して下さい</p>
-<div class="form">
+<h3><%= current_user.name %>さん</h3>
+<h4>ユーザー情報の変更</h4>
+<p class="vertical-center">変更したい項目を、入力または選択して下さい</p>
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <ul>
-    <li>
-      <dl>
-        <dt><%= f.label :name %></dt>
-        <dd><%= f.text_field :name, autofocus: true, autocomplete: "name" %></dd>
-      </dl>
-    </li>
-  </ul>
+  <table class="form">
+  <tr>
+        <th><%= f.label :name %></th>
+        <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
+      </tr>
+  </tr>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+    Currently waiting confirmation for: <%= resource.unconfirmed_email %>
   <% end %>
-  <ul>
-    <li>
-      <dl>
-        <dt><%= f.label :password %> (6文字以上)</dt>
-        <dd><%= f.password_field :password, placeholder: "変更がなければ空欄" %></dd>
-      </dl>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <dl>
-        <dt><%= f.label :password_confirmation %></dt>
-        <dd><%= f.password_field :password_confirmation, placeholder: "変更がなければ空欄" %></dd>
-      </dl>
-    </li>
-  </ul>
-  <ul>
-    </li>
-      <dl>
-        <dt><%= f.label :baby_due_on %></dt>
-        <dd><%= f.date_select :baby_due_on, use_month_numbers: true, include_blank: true, autocomplete: "baby_due_on", start_year: (Time.now.year), end_year: (Time.now.year + 1) %></dd>
-      </dl>
-    </li>
-  </ul>
-  <ul>
-    </li>
-      <dl>
-        <dt><%= f.label :current_password %> (必須)</dt>
-        <dd><%= f.password_field :current_password, autocomplete: "current-password" %></dd>
-      </dl>
-    </li>
-  </ul>
-  <div class="actions">
-    <%= f.submit "更新" %>
+
+      <tr>
+        <th><%= f.label :password %> (6文字以上)</th>
+        <td><%= f.password_field :password, placeholder: "変更がなければ空欄" %></td>
+      </tr>
+    </tr>
+      <tr>
+        <th><%= f.label :password_confirmation %></th>
+        <td><%= f.password_field :password_confirmation, placeholder: "変更がなければ空欄" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :baby_due_on %></th>
+        <td><%= f.date_select :baby_due_on, use_month_numbers: true, include_blank: true, autocomplete: "baby_due_on", start_year: (Time.now.year), end_year: (Time.now.year + 1) %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :current_password %> (必須)</th>
+        <td><%= f.password_field :current_password, autocomplete: "current-password" %></td>
+      </tr>
+    </table>
+  <div class="actions button_to">
+    <%= f.submit "更新", class:"button"%>
   </div>
   <% end %>
-</div>
 <br>
 <%= link_to "戻る", user_path(current_user) %>

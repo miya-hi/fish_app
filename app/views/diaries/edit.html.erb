@@ -1,4 +1,4 @@
-<h1>おさかなの編集</h1>
+<h2>おさかなの編集</h2>
 <%= form_with(model: @diary, local: true) do |form| %>
 <% if @diary.errors.any? %>
   <div id="error_explanation">
@@ -10,20 +10,51 @@
   </div>
 <% end %>
 <%= form.hidden_field :input_at %>
-  <div class="field">
-    <%= select_tag'diary[line]',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %></td>
-    <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name ,{selected: @diary.fish.id}) %>
-    <li id="fish_content"></li>
-  </div>
-  <div class="field">
-    <%= form.label :量 %>
-    <%= form.text_field :amount %><span>g</span>
-  </div>
-  <div class="submit">
-    <%= form.submit "登録"%>
-  </div>
-<% end %>
 
+<br>
+  <div class="fish-register">
+    <h5>● 魚を選択 ( 一覧またはお気に入りから )</h5>
+    <div class="fish_wrapper">
+    <ul class="fish_content">
+      <li>一覧</li>
+        <li class="field">
+          <%= select_tag'diary[line]',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %>
+          <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name, {selected: @diary.fish.id}), include_blank: '選択して下さい' %></li>
+        <li id="fish_content"></li>
+        <li class="li-space">
+          <%= form.label :favorite %>
+          <%= check_box_tag('register_favorite', true) %>
+        </li>
+      </ul>
+      <ul class="fish_content">
+      <li>お気に入り</li>
+        <li class="field">
+          <%= select_tag'favorite[fish_id]',options_from_collection_for_select(@favorite_fishes, :id, :name),{include_blank: '選択して下さい'} %></li>
+          <li id="favorite_content"></li>
+          <li class="li-space"><%= link_to " お気に入り削除", favorites_path, target: :_blank  %><li>
+          </ul>
+      </div>
+      <br>
+  <div class="fish_wrapper">
+    <div>
+      <h5>● <%= form.label :amount %><span>を入力</span><h5>
+          <%= form.text_field :amount %><span>g</span>
+          </div>
+    <div class="fish-amount">
+      <h6>量の目安</h6>
+      <ul>
+        <li>1切れ 80g</li>
+        <li>小さな魚などは 選択タブ下に表示</li>
+        <li>缶詰は 商品の表示をご覧下さい</li>
+      </ul>
+    </div>
+  </div>
+  <div class="submit button_to">
+    <%= form.submit "登録", class: "button"%>
+  </div>
+  </div>
+  <br>
+<% end %>
 <script>
   $(function() {
     $('#diary_line').change(function() {
@@ -50,5 +81,38 @@
       })
     });
   });
-
+  $(function() {
+    $('#favorite_fish_id').change(function() {
+      const fishId = $(this).val();
+      if (!fishId) return;
+      $.get({
+        url: '/api/fishes/' + fishId + '.json',
+      }).then(function(data) {
+        const fish = data.fish;
+        $('#favorite_content').text(fish.content);
+      })
+    });
+  });
+  $(function() {
+    $('#favorite_content').change(function() {
+      const fishId = $(this).val();
+      if (!fishId) return;
+      $.get({
+        url: '/api/fishes/' + fishId + '.json',
+      }).then(function(data) {
+        const fish = data.fish;
+        $('#favorite_fish_id').text(fish.content);
+      })
+    });
+  });
+  $(function() {
+    $('#favorite_fish_id').change(function() {
+        $('#diary_fish_id').prop("selectedIndex", 0);
+    })
+  });
+  $(function() {
+    $('#diary_fish_id').change(function() {
+        $('#favorite_fish_id').prop("selectedIndex", 0);
+    })
+  });
   </script>

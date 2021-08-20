@@ -27,10 +27,10 @@
 //   padding: 0;
 // }
 html {
-    font-size: 100%;
+    font-size: 110%;
 }
 body {
-  color: #333333;
+  color: #4f4f4f;
   font-family:"Muli","M PLUS Rounded 1c";
   display: flex;
   flex-direction: column;
@@ -38,19 +38,28 @@ body {
 }
 .wrapper {
     margin: 0 auto;
-    padding: 0 4%;
-}
-h2 {
-  margin: 20px;
-  text-align: center;
-  // font-family: "メイリオ";
+    padding: 2% 3% 2% 3%;
 }
 a {
   color: #4c4c4c;
   text-decoration: none;
 }
+h2 {
+  margin: 10px 40px;
+  text-align: center;
+  // font-family: "メイリオ";
+}
+h3 ,h4{
+  text-align: center;
+}
+
+a {
+  color: #4c4c4c;
+  text-decoration: none;
+}
 a:hover {
-  color: #FFB6B6
+  color: #FFB6B6;
+  text-decoration: none;
 }
 ul {
   padding: 0;
@@ -61,23 +70,75 @@ li {
 ol li {
   list-style-type: decimal;
 }
-.form dl {
+table {
+  margin: auto;
+  border: solid 1px gray;
+  border-spacing: 0;
+	border-collapse: separate;
+  border-radius: 4px;
+}
+th ,td {
+  font-size: 1.1rem;
+  padding: 0.2rem 1rem;
+  text-align: center;
+}
+p {
+  font-size: 1.1rem;
+}
+.vertical-center{
+  text-align: center;
+}
+.vertical-left{
+  text-align: left;
+}
+
+.border-btm{
+  border-bottom: solid 1px #d3d3d3;
+}
+dl {
+  text-align: center;
+  border: solid 1px gray;
+  border-radius: 4px;
+  margin: 10px 12rem;
+  // font-size: 1.2rem;
+}
+// .form {
+//   min-width: 600px;
+// }
+.form tr {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.2rem;
+  // font-size: 1.2rem;
   // font-family: "メイリオ";
 }
 label {
     font-weight: normal;
 }
-.form dt {
+.form td {
   margin-right: 10px;
+  padding: 0.5rem 0;
 }
 .button_to {
+  border-color: pink;
+  // font-size: 1.1rem;
+  font-weight: normal;
   text-align: center;
-  margin: 5px;
+  margin: 10px;
+  padding: 3px;
 }
+.link_to {
+  font-size: 1.15rem;
+}
+#diary_fish_id ,#favorite_fish_id ,#diary_line, #line, #name {
+  color: #4f4f4f;
+}
+
+
+// .checkbox {
+//   width: 1.2rem;
+// }
+
 // .field {
 //   text-align: center;
 // }
@@ -130,13 +191,15 @@ label {
 // // .nav-button a {
 // //   color: #fff;
 // }
-.how-to-use {
+.how-to-use-link {
+  font-size: 1.3rem;
   padding: 0;
-  margin-left: 50px;
-  font-size: 1.4rem;
+  margin-left: 55px;
+  // font-size: 1.4rem;
 }
 .message {
   text-align: center;
+
   margin-top: 10px;
   padding: 0
 }
@@ -146,13 +209,14 @@ label {
   background-color: #B0D5EC;
   // border-color: #6C90C0;
   color: #2C4667;
+    border-radius: 0;
 }
 .alert-notice {
   display:inline-block;
   // padding: 3px 5px;
-  background-color: #B0D5EC;
+  // background-color: #B0D5EC;
   // border-color: #6C90C0;
-  color: #2C4667;
+  color: #4f4f4f
 }
 #error_explanation h2{
   font-size: 0;
@@ -171,58 +235,38 @@ label {
 .row-content div{
   float: left;
 }
-.chart {
-  display: flex;
-  flex-direction: column;
-  background-color: #FFB6B6;
-  border: solid 2px #FFB6B6;
-  border-radius: 20px 10px 30px 40px;
-  margin-right: 15px;
-  padding: 10px;
-  // height: 800px;
-}
-.chart-title {
-  text-align: center;
-  font-size: 1.4rem;
 
-}
-.unit {
-  font-size: 1.2rem;
-}
-.target{
-  text-align: center;
-  font-size: 1.2rem;
-}
-.message-on-chart {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #ff8282;
-}
-.mercury-chart {
-  background-color: #fff;
-}
-.n3-chart {
-  background-color: #fff;
-}
-// .mercury-chart canvas{
-//   background-color: #fff;
-// }
-// .n3-chart canvas {
-//   background-color: white;
-// }
-.calendar {
-  min-width: 900px;
-}
-.fish_content {
-  padding-left: 10px;
-}
+
 // .submit {
 //   text-align: center;
 // }
+#edit-fish-btn {
+  color: #4f4f4f;
+}
+.button {
+  color: #4f4f4f;
+}
+
+.vertical-button {
+  display: flex;
+  justify-content: space-around;
+}
+.mybutton {
+  text-decoration: none;
+  text-align: center;
+  color: #2C4667;
+  background-color: #B0D5EC;
+  border-color: #98cbe3;
+  border-radius: 5px 10px 80px 40px;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
 footer {
   // border-top: dotted 4px #A88C6A;
   // color: #fff;
   margin-top: auto;
+  padding: 5px;
   text-align: center;
   background-color: #B0D5EC;
 }

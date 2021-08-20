@@ -2,12 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user_baby {
+.user-due {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  align-items: center;
+}
+.user-baby {
   width: auto;
-  height: 60px;
+  height: 100px;
+}
+.user-info {
+  display: flex;
+  justify-content: space-between;
 }
 
-.user_fish {
-  width: 40px;
-  height: auto;
-}
+// .user_fish {
+//   width: 40px;
+//   height: auto;
+// }

@@ -1,4 +1,9 @@
-<h2>おさかな登録</h2>
+<% if @diary.input_at.blank? || @diary.input_at==Date.today %>
+<h2>おさかなを登録する</h2>
+<% else %>
+<h2>
+  <%= @diary.input_at.strftime("%m / %d") %> のおさかな登録</h2>
+  <% end %>
 <%= form_with(model: @diary, local: true) do |form| %>
 <% if @diary.errors.any? %>
     <div id="error_explanation">
@@ -11,34 +16,35 @@
   <% end %>
 <%= form.hidden_field :input_at %>
 <br>
-  <div>
-    <h5>魚を選択 一覧またはお気に入りから</h5>
-    <div class="content">
+  <div class="fish-register">
+    <h5>● 魚を選択 ( 一覧またはお気に入りから )</h5>
+    <div class="fish_wrapper">
     <ul class="fish_content">
       <li>一覧</li>
         <li class="field">
           <%= select_tag'diary[line]',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %>
           <%= select_tag'diary[fish_id]',options_from_collection_for_select(@fishes, :id, :name), {include_blank: '選択して下さい'} %></li>
         <li id="fish_content"></li>
+        <li class="li-space">
+          <%= form.label :favorite %>
+          <%= check_box_tag('register_favorite', true) %>
+        </li>
       </ul>
       <ul class="fish_content">
       <li>お気に入り</li>
         <li class="field">
           <%= select_tag'favorite[fish_id]',options_from_collection_for_select(@favorite_fishes, :id, :name),{include_blank: '選択して下さい'} %></li>
           <li id="favorite_content"></li>
+          <li class="li-space"><%= link_to " お気に入り削除", favorites_path, target: :_blank  %><li>
           </ul>
       </div>
-      <div class="field">
-        <%= form.label :favorite %>
-        <%= check_box_tag('register_favorite', true) %>
-      </div>
       <br>
-  <div class="content">
+  <div class="fish_wrapper">
     <div>
-      <h5><%= form.label :amount %><span>を入力</span><h5>
+      <h5>● <%= form.label :amount %><span>を入力</span><h5>
           <%= form.text_field :amount %><span>g</span>
           </div>
-    <div class="fish_content">
+    <div class="fish-amount">
       <h6>量の目安</h6>
       <ul>
         <li>1切れ 80g</li>
@@ -47,14 +53,12 @@
       </ul>
     </div>
   </div>
+  <div class="submit button_to">
+    <%= form.submit "登録" ,class:"button" %>
+  </div>
+  </div>
   <br>
-  <div class="submit">
-    <%= form.submit "登録"%>
-  </div>
-  </div>
 <% end %>
-<br>
-  <%= link_to "お気に入り削除", favorites_path, target: :_blank  %>
 <script>
   $(function() {
     $('#diary_line').change(function() {
@@ -108,6 +112,11 @@
   $(function() {
     $('#favorite_fish_id').change(function() {
         $('#diary_fish_id').prop("selectedIndex", 0);
+    })
+  });
+  $(function() {
+    $('#diary_fish_id').change(function() {
+        $('#favorite_fish_id').prop("selectedIndex", 0);
     })
   });
   </script>

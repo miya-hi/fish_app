@@ -1,9 +1,9 @@
-<h1>《管理者ページ》魚の一覧</h1>
+<h2>《管理者ページ》魚の一覧</h2>
 <table>
   <tr>
-    <th>行</th>
-    <th>おさかな名</th>
-    <th></th>
+    <th class="border-btm">行</th>
+    <th class="border-btm">おさかな名</th>
+    <th class="border-btm"></th>
   </tr>
   <tr>
     <td><%= select_tag'line',options_for_select([["あ","あ"],["か","か"],["さ","さ"],["た","た"],["な","な"],["は","は"],["ま","ま"],["や","や"],["ら","ら"],["わ","わ"]]) %></td>
@@ -12,7 +12,7 @@
   </tr>
 </table>
 <br>
-<%= button_to '新規登録', new_admin_fish_path, method: :get %>
+<%= link_to '新規登録へ', new_admin_fish_path, method: :get %><br>
 <%= link_to '戻る', admin_users_path, method: :get %>
 <script>
   $(function() {
@@ -22,12 +22,10 @@
         data: { line: $('#line').has('option:selected').val() }
       }).then(function(data) {
         console.log('data=%o', data);
-        // %oオブジェクトの内容を出してくれる
         const $nameSelect = $('#name');
         $nameSelect.find('option').remove();
         data.fishes.forEach(function(fish) {
-          // $nameSelect.append(`<option value="${fish.id}">${fish.name}</option>`);
-          $nameSelect.append('<option value="' + fish.id + '">' + fish.name + '</option>'); //IEでも使える
+          $nameSelect.append('<option value="' + fish.id + '">' + fish.name + '</option>');
         });
       });
     });

@@ -1,18 +1,38 @@
 .simple-calendar {
   width: 100%;
+  padding: 5px 10px;
+  background-color: #FFB6B6;
+  border-radius: 15px 25px 25px 15px;
   a {
-    color: #0076e5;
+    color: #4f4f4f;
+  }
+  span {
+    // font-size: 1.1rem;
+  }
+  .calendar-heading {
+    // font-size: 1.4rem;
+    text-align: center;
+  }
+  .calendar-title {
+    font-size: 1.1rem;
   }
   .day {
+    font-size: 1.1rem;
+    text-align: left;
     height: 10vh;
     padding: 5px;
     background-color: white;
-    border-color: #a9a9a9;
+    border-color: #c0c0c0;
+  }
+  .day a {
+    font-size: 1rem;
   }
   .day_of_week{
     width: 14.2%;
+    font-size: 1.1rem;
     text-align: center;
-    border-color: #a9a9a9;
+    background-color: #fff;
+    border-color: #c0c0c0;
   }
   .date-wtapper{
 
@@ -40,12 +60,23 @@
   .start-date {}
 
   .prev-month {
-    background-color: #dbdbdb;
+    background-color: #ededed;
+  }
+  .prev-month a {
+    color: #9b9b9b;
   }
   .next-month {
-    background-color: #dbdbdb;
+    background-color: #ededed;
    }
+   .next-month a{
+    color: #9b9b9b;
+    }
   .current-month {}
 
   .has-events {}
+  .diary-fish-name{
+    color: #37f;
+    font-size: 1rem;
+    // font-weight: bold;
+  }
 }
