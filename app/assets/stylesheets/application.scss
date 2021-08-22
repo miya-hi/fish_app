@@ -95,7 +95,7 @@ p {
 }
 .flex-vertical-bottom {
   display: flex;
-  align-items: flex-end;  
+  align-items: flex-end;
 }
 .vertical-center{
   text-align: center;
@@ -211,7 +211,7 @@ label {
 }
 .icon {
   display: block;
-  width: 1.2rem;
+  width: 1.5rem;
   margin-right: 0.2rem;
 }
 // // .nav-button {
@@ -278,10 +278,11 @@ label {
 .button {
   color: #4f4f4f;
 }
-// .btn {
-//   height: 1.3rem;
-//   padding: 0;
-// }
+.btn {
+  height: 1.4rem;
+  width: auto;
+  padding: 0 0 29px 0;
+}
 .vertical-button {
   display: flex;
   justify-content: space-around;
