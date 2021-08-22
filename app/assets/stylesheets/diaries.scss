@@ -15,15 +15,17 @@
 
 }
 .unit {
-  // font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .target{
+  padding-top: 0.5rem;
   text-align: center;
-  // font-size: 1.2rem;
+  font-size: 1.4rem;
+  // font-weight: bold;
 }
 .message-on-chart {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #ff8282;
 }
 .mercury-chart {
@@ -33,6 +35,9 @@
 .n3-chart {
   background-color: #fff;
   border-radius: 5px;
+}
+.about-tuna {
+  font-size: 0.9rem;
 }
 // .mercury-chart canvas{
 //   background-color: #fff;
@@ -67,6 +72,10 @@ border-bottom: solid 5px #B0D5EC;
   border: solid 1px #c0c0c0;
   background-color: #fff;
   border-radius: 3px;
+}
+.fish-img {
+  width: 120px;
+  padding: 5px;
 }
 .show-wrapper {
   border: solid 6px #ccbba8;

@@ -1,32 +1,32 @@
 <div class="content">
   <div class="chart">
-    <h3 class="chart-title">水銀<span class="unit">（単位：％）</span></h3>
+    <h3 class="chart-title">水銀<span class="unit"> ( 1週間あたり )</span></h3>
       <div class="mercury-chart">
-        <p class="target">目標：100%未満</p>
+        <p class="target"><%= @total_mercury.round%>％</p>
         <% if @total_mercury >= 100 %>
-        <p class="message-on-chart"><%= "超えています" %></p>
-        <%= column_chart({ "水銀（直近7日）" => @total_mercury }, colors: ["#b00"], backgroundColor: "#fff") %>
+        <p class="message-on-chart"><%= "上限を超えています" %><br>多い魚は控えましょう <button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#mercuryModal">↗︎</button></p>
+        <%= column_chart({ "" => @total_mercury.round }, colors: ["#b00"], backgroundColor: "#fff") %>
         <% elsif @total_mercury >= 50 %>
-        <p class="message-on-chart"><%= "摂りすぎは控えましょう" %></p>
-        <%= column_chart({ "水銀（直近7日）" => @total_mercury }, max: 100, colors: ["#fe0"]) %>
+        <p class="message-on-chart"><%= "100％が上限です" %><br>多い魚を確認しましょう <button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#mercuryModal">↗︎</button></p>
+        <%= column_chart({ "" => @total_mercury.round }, max: 100, colors: ["#fe0"]) %>
         <% else %>
         <p class="message-on-chart"><%= "問題ありません" %></p>
-        <%= column_chart({ "水銀（直近7日）" => @total_mercury }, max: 100, colors: ["#009000"]) %>
+        <%= column_chart({ "" => @total_mercury.round }, max: 100, colors: ["#009000"]) %>
         <% end %>
         </div>
         <br>
-    <h3 class="chart-title">n-3系脂肪酸<span class="unit">（単位：g）</span></h3>
+    <h3 class="chart-title">n-3系脂肪酸<span class="unit"> ( 1週間あたり )</span></h3>
       <div class="n3-chart">
-        <p class="target">目標：11g</p>
+        <p class="target"><%= @total_n3_oil.round(1)%>g</p>
         <% if @total_n3_oil >= 11 %>
         <p class="message-on-chart"><%= "きちんと摂れています" %></p>
-        <%= column_chart({ "n-3系脂肪酸（直近7日）" => @total_n3_oil }, colors: ["#00f"]) %>
-        <% elsif @total_n3_oil >= 5.5 %>
-        <p class="message-on-chart"><%= "目標まであと少し" %></p>
-        <%= column_chart({ "n-3系脂肪酸（直近7日）" => @total_n3_oil }, max: 11, colors: ["#37f"]) %>
+        <%= column_chart({ "" => @total_n3_oil.round(1) }, colors: ["#00f"]) %>
+        <% elsif @total_n3_oil >= 6 %>
+        <p class="message-on-chart"><%= "11gまであと少し" %><button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#n3Modal">↗︎</button></p>
+        <%= column_chart({ "" => @total_n3_oil.round(1) }, max: 11, colors: ["#37f"]) %>
         <% else %>
-        <p class="message-on-chart"><%= "少ないです" %></p>
-        <%= column_chart({ "n-3系脂肪酸（直近7日）" => @total_n3_oil }, max: 11, colors: ["#80aaff"]) %>
+        <p class="message-on-chart"><%= "11gを目指しましょう " %><button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#n3Modal">↗︎</button></p>
+        <%= column_chart({ "" => @total_n3_oil.round(1) }, max: 11, colors: ["#80aaff"]) %>
         <% end %>
       </div>
     </div>
@@ -49,4 +49,47 @@
       <% end %>
     <% end %>
     </div>
+  </div>
+  <!-- モーダルダイアログ -->
+  <div class="modal fade" id="mercuryModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="mercuryModalTitle">メチル水銀<p>　過剰に摂取すると、赤ちゃんの音の聞こえ方な<br>　どに影響が出る恐れがあると言われています。<br>　上限：100% / 週</p></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body modal-fish">
+                <div>1週間の基準</div>
+                <div>● 2切れ（160g）まで</div>
+                <p>キダイ、マカジキ、ユメカサゴ、インドマグロ（ミナミマグロ）、ヨシキリザメ、イシイルカ</p>
+                <div>● 1切れ（80g）まで</div>
+                <p>金目鯛、メカジキ、本マグロ（クロマグロ）、メバチマグロ、エッチュウバイガイ、ツチクジラ、マッコウクジラ</p>
+                <div>● 半切れ（40g）まで</div>
+                <p>コビレゴンドウ</p>
+                <div>● 10gまで</div>
+                <p>バンドウイルカ</p>
+                <div class="about-tuna">補足）<br>上記基準の上限（〇〇gまで）を100%と設定しています。</div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="n3Modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="n3ModalTitle">n-3系脂肪酸(DHA・EPA)<p>　赤ちゃんの神経発達に欠かせない栄養素<br>　目安量：1.6g / 日 （ 11.2g / 週 ）</p></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body modal-fish">
+                <div>青魚に豊富です!</div>
+                <div>●おすすめ<br>さば、さんま、いわし、にしん、ぶり、さわら</div><br>
+                <div>青魚以外<br>●おすすめ<br>鮭、鯛（真鯛）</div>　
+                <div class="about-tuna">注意）<br>マグロにも含まれますが、本マグロ（クロマグロ）、インドマグロ（ミナミマグロ）、メバチマグロは水銀の含有量が多いので、食べ過ぎは控えましょう。<br>鯛の中でも黄鯛は水銀を多く含みます。<br>魚は生で食べると、リステリア菌などによる食中毒のリスクがあります。赤ちゃに影響が出る恐れがあるため、控えましょう。</div>
+              </div>
+          </div>
+      </div>
   </div>

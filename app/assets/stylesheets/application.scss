@@ -85,6 +85,18 @@ th ,td {
 p {
   font-size: 1.1rem;
 }
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+.flex-vertical-center{
+  display: flex;
+  align-items: center;
+}
+.flex-vertical-bottom {
+  display: flex;
+  align-items: flex-end;  
+}
 .vertical-center{
   text-align: center;
 }
@@ -252,6 +264,9 @@ label {
 .row-content div{
   float: left;
 }
+.modal-fish {
+  font-size: 1.2rem;
+}
 
 
 // .submit {
@@ -263,7 +278,10 @@ label {
 .button {
   color: #4f4f4f;
 }
-
+// .btn {
+//   height: 1.3rem;
+//   padding: 0;
+// }
 .vertical-button {
   display: flex;
   justify-content: space-around;
