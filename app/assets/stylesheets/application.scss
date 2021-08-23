@@ -174,9 +174,10 @@ label {
   // flex: 2;
   // height: 4rem;
   // width: 17rem;
+  width: 334px;
   padding-top: 9px;
-  margin-right: 30px;
-  margin-left: 35px;
+  margin-right: 52px;
+  margin-left: 20px;
   // font-size: 2rem;
   // display: flex;
   // align-items: center;
@@ -198,7 +199,8 @@ label {
 .main-nav li {
   display: flex;
   align-items: center;
-    padding: 20px 7px 0 3px;
+  font-size: 1.1rem;
+    padding: 20px 17px 0 7px;
     // margin-left: 3px;
 }
 .nav-link {
@@ -211,8 +213,22 @@ label {
 }
 .icon {
   display: block;
-  width: 1.5rem;
-  margin-right: 0.2rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.1rem;
+}
+.top-content{
+  margin: 0 auto;
+}
+.top-image-title {
+  font-size: 1.3rem;
+  color: #ff8282;
+}
+.top-image {
+  padding: 15px;
+  border: solid 3px #ffb6b6;
+  border-radius: 5px;
+  box-shadow: 0px 2px 3px #808080;
 }
 // // .nav-button {
 // //   background-color: #B0D5EC;
@@ -221,9 +237,10 @@ label {
 // //   color: #fff;
 // }
 .how-to-use-link {
-  font-size: 1.3rem;
-  padding: 0;
-  margin-left: 55px;
+  display: flex;
+  font-size: 1.2rem;
+  padding: 10px 0 0 0 ;
+  margin-left: 90px;
   // font-size: 1.4rem;
 }
 .message {
@@ -288,14 +305,31 @@ label {
   justify-content: space-around;
 }
 .mybutton {
-  text-decoration: none;
-  text-align: center;
-  color: #2C4667;
-  background-color: #B0D5EC;
-  border-color: #98cbe3;
-  border-radius: 5px 10px 80px 40px;
-  font-size: 1.3rem;
-  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  width: 140px;
+  margin: 0 auto;
+  // text-decoration: none;
+  // text-align: center;
+  // color: #2C4667;
+  // background-color: #B0D5EC;
+  // border-color: #98cbe3;
+  // border-radius: 5px 10px 80px 40px;
+  // font-size: 1.3rem;
+  // font-weight: normal;
+}
+.mybutton-left {
+  display: flex;
+  justify-content: center;
+  width: 140px;
+  // text-decoration: none;
+  // text-align: center;
+  // color: #2C4667;
+  // background-color: #B0D5EC;
+  // border-color: #98cbe3;
+  // border-radius: 5px 10px 80px 40px;
+  // font-size: 1.3rem;
+  // font-weight: normal;
 }
 
 footer {

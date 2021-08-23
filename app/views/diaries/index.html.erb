@@ -7,7 +7,7 @@
         <p class="message-on-chart"><%= "上限を超えています" %><br>多い魚は控えましょう <button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#mercuryModal">↗︎</button></p>
         <%= column_chart({ "" => @total_mercury.round }, colors: ["#b00"], backgroundColor: "#fff") %>
         <% elsif @total_mercury >= 50 %>
-        <p class="message-on-chart"><%= "100％が上限です" %><br>多い魚を確認しましょう <button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#mercuryModal">↗︎</button></p>
+        <p class="message-on-chart"><%= "100％が上限です" %><br>多い魚を確認しましょう <button type="button" class="btn btn-outline-danger btn-xs w-15" data-toggle="modal" data-target="#mercuryModal">↗︎</button></p>
         <%= column_chart({ "" => @total_mercury.round }, max: 100, colors: ["#fe0"]) %>
         <% else %>
         <p class="message-on-chart"><%= "問題ありません" %></p>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="calendar">
-      <%= button_to '  食べた?   > 〈 ゜',new_diary_path, {method: :get, class: "mybutton"} %>
+      <%= link_to image_tag('newfish-btn.png', class: "mybutton"),new_diary_path, {method: :get} %>
       <br>
     <%= month_calendar events: @diaries do |date, diaries| %>
       <%= link_to date.day, diary_path(date.strftime('%Y-%m-%d')) %>

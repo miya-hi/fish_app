@@ -1,6 +1,6 @@
 <% if @diaries.size > 0 %>
 <h2><%= @diaries.first.input_at.strftime("%m / %d") %> のおさかな記録</h2>
-<div class="link_to"><%= link_to '追加で登録',new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), method: :get %></div>
+<div class="link_to"><%= link_to image_tag('addfish-btn.png', class: "mybutton-left"),new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), {method: :get} %></div>
   <h4>詳細</h4>
   <table class="show-wrapper">
   <thead>
@@ -96,6 +96,6 @@
 <% else %>
 <h2><%= @input_at.strftime("%m / %d") %></h2>
 <p>記録がありません</p>
-  <div class="link_to"><%= link_to 'この日食べたおさかなを登録',new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), method: :get %></div>
+  <div class="link_to"><%= link_to image_tag('newdayfish-btn.png', class: "mybutton"),new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), {method: :get} %></div>
 
 <% end %>

@@ -14,7 +14,7 @@
   <body>
     <% if user_signed_in? %>
       <header class="page-header">
-        <h1 class="logo"><%= image_tag 'logo2.png', class: 'logo' %></h1>
+        <h1 class="logo"><%= link_to image_tag('logo5.png', class: 'logo'),diaries_path %></h1>
           <nav class="main-nav">
               <ul class="nav-left rounded">
                 <li><%= image_tag 'user.png', class: 'icon' %><%= link_to "#{current_user.name}さん", user_path(current_user),class: "nav-link" %></li>
@@ -23,25 +23,25 @@
                 <li><%= image_tag 'calendar.png', class: 'icon' %><%= link_to "グラフ/カレンダー", diaries_path %></li>
                 <li>
                   <% if current_user.admin == true %>
-                    <%= link_to "管理者ページ", admin_users_path %>
+                    <%= image_tag 'haguruma.png', class: 'icon' %><%= link_to "管理者ページ", admin_users_path %>
                   <% end %>
                 </li>
                 <li><%= image_tag 'logout.png', class: 'icon' %><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
               </ul>
           </nav>
       </header>
-      <div class="how-to-use-link"><%= link_to "このアプリについて", tops_help_path %></div>
+      <div class="how-to-use-link"><%= image_tag 'hatena.png', class: 'icon' %><%= link_to "このアプリについて", tops_help_path %></div>
     <% else %>
       <header class="page-header">
-        <h1 class="logo"><%= image_tag 'logo.png', class: 'logo' %></h1>
+        <h1 class="logo"><%= link_to image_tag('logo5.png', class: 'logo'),diaries_path %></h1>
         <nav class="main-nav">
           <ul class="nav-left rounded">
-            <li><%= link_to "ユーザー登録", new_user_registration_path %></li>
+            <li><%= image_tag 'user.png', class: 'icon' %><%= link_to "ユーザー登録", new_user_registration_path %></li>
           </ul>
           <ul class="nav-right rounded">
             <li class="nav-button"><%= image_tag 'login.png', class: 'icon' %><%= link_to "ログイン", new_user_session_path %></li>
-            <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %></li>
-            <li><%= link_to "管理者ゲストログイン", users_admin_guest_sign_in_path, method: :post %></li>
+            <li><%= image_tag 'guest.png', class: 'icon' %><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %></li>
+            <li><%= image_tag 'guest.png', class: 'icon' %><%= link_to "管理者ゲストログイン", users_admin_guest_sign_in_path, method: :post %></li>
           </ul>
         </nav>
       </header>
