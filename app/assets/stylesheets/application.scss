@@ -194,15 +194,26 @@ label {
     justify-content: space-between;
     font-size: 1.2rem;
     align-items: center;
-    border-bottom: dotted 8px #ccbba8;
+    border-bottom: dotted 4px #adadad;
 }
 .main-nav li {
   display: flex;
   align-items: center;
   font-size: 1.1rem;
-    padding: 20px 17px 0 7px;
+  padding: 20px 17px 0 7px;
     // margin-left: 3px;
 }
+.main-nav li a {
+  color: #636363;
+
+}
+
+.main-nav li a:hover {
+  border-bottom: 3px solid #ffc9c9;
+
+}
+
+
 .nav-link {
   display: block;
   padding: 0;
@@ -238,10 +249,14 @@ label {
 // }
 .how-to-use-link {
   display: flex;
+  align-items: center;
   font-size: 1.2rem;
   padding: 10px 0 0 0 ;
   margin-left: 90px;
   // font-size: 1.4rem;
+}
+.how-to-use-link a{
+  color: #636363;
 }
 .message {
   text-align: center;
