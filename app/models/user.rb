@@ -32,6 +32,6 @@ class User < ApplicationRecord
 
   def pregnancy
     errors.add(:baby_due_on, "は280日以降の登録ができません")if
-    baby_due_on > Date.today+280
+    baby_due_on >= Date.today+280
   end
 end
