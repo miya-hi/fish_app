@@ -1,5 +1,5 @@
 class Fish < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :line, presence: true
   validates :n3_oil, presence: true
   validates :vitamin_a, presence: true
