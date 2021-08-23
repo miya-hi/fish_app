@@ -36,8 +36,12 @@ class Admin::FishesController < ApplicationController
   end
 
   def destroy
-    @fish.destroy
-    redirect_to admin_fishes_path, notice: "魚を削除しました"
+     if @fish.destroy
+       redirect_to admin_fishes_path, notice: "魚を削除しました"
+     else
+       flash.now[:alert] = "魚を削除できませんでした"
+       render :edit
+     end
   end
 
   private
