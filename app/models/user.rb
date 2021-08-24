@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validate :pregnancy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable
+         :recoverable, :rememberable, :validatable
   has_many :diaries, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_fishes, through: :favorites, source: :fish
