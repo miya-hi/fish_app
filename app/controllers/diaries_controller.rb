@@ -26,7 +26,7 @@ class DiariesController < ApplicationController
         if params[:register_favorite] == "true"
           current_user.favorites.where(fish_id: @diary.fish_id).first_or_create
         end
-      redirect_to diaries_path, notice: "作成しました"
+      redirect_to diaries_path, notice: "登録しました"
     else
     render :new
     end
