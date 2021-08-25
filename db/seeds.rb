@@ -68,7 +68,7 @@ Fish.create!(name: "まだら", line: "ま", n3_oil: 0.07, vitamin_a: 10, mercur
 Fish.create!(name: "すけとうだら", line: "す", n3_oil: 0.25, vitamin_a: 10, mercury: nil, content: "", image: "")
 Fish.create!(name: "たらこ", line: "た", n3_oil: 1.19, vitamin_a: 24, mercury: nil, content: "", image: "")
 Fish.create!(name: "辛子明太子", line: "か", n3_oil: 1.01, vitamin_a: 41, mercury: nil, content: "", image: "")
-Fish.create!(name: "辛子明太子", line: "め", n3_oil: 1.01, vitamin_a: 41, mercury: nil, content: "", image: "")
+#Fish.create!(name: "辛子明太子", line: "め", n3_oil: 1.01, vitamin_a: 41, mercury: nil, content: "", image: "")
 Fish.create!(name: "にしん", line: "に", n3_oil: 2.13, vitamin_a: 18, mercury: nil, content: "", image: "")
 Fish.create!(name: "かずのこ", line: "か", n3_oil: 1.37, vitamin_a: 15, mercury: nil, content: "", image: "")
 Fish.create!(name: "ひらめ", line: "ひ", n3_oil: 0.89, vitamin_a: 19, mercury: nil, content: "", image: "")
