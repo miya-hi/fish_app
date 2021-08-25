@@ -167,8 +167,8 @@ label {
 }
 
 .page-header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .logo {
   // flex: 2;
@@ -187,14 +187,14 @@ label {
 }
 // .main-nav { flex: 3; }
 .main-nav {
-    flex: 5;
-    margin-right: 7px;
-    margin-left: 9px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2rem;
-    align-items: center;
-    border-bottom: dotted 4px #adadad;
+  flex: 5;
+  margin-right: 7px;
+  margin-left: 9px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  align-items: center;
+  border-bottom: dotted 4px #adadad;
 }
 .main-nav li {
   display: flex;
