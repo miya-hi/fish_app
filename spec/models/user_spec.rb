@@ -24,13 +24,13 @@ RSpec.describe User, type: :model do
     end
     context 'ニックネームが21文字以上の場合' do
       it 'バリデーションエラーになる' do
-        @user.name = 'a*21'
+        @user.name = 'a'*21
         expect(@user).not_to be_valid
       end
     end
     context 'パスワードが空の場合' do
       it 'バリデーションエラーになる' do
-        @user.password = nil
+        @user.password = ''
         expect(@user).not_to be_valid
       end
     end
