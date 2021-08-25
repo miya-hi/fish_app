@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: {minimum:5, maximum: 20}
-  validates :password, presence: true, length: {minimum:6}
+  # validates :password, presence: true, length: {minimum:6}
   validate :pregnancy
 
   devise :database_authenticatable, :registerable,
@@ -32,7 +32,8 @@ class User < ApplicationRecord
   end
 
   def pregnancy
-    errors.add(:baby_due_on, "は280日以降の登録ができません")if
-    baby_due_on >= Date.today+280
+    if baby_due_on && baby_due_on >= Date.today.since(280.days)
+      errors.add(:baby_due_on, "は280日以降の登録ができません")
+    end
   end
 end
