@@ -126,10 +126,10 @@ Fish.create!(name: "はんぺん", line: "は", n3_oil: 0.08, vitamin_a: 0, merc
 Fish.create!(name: "さつま揚げ", line: "さ", n3_oil: 0.30, vitamin_a: 0, mercury: nil, content: "1枚 50g", image: "")
 Fish.create!(name: "魚肉ソーセージ", line: "き", n3_oil: 0.10, vitamin_a: 0, mercury: nil, content: "1本 70g", image: "")
 
-User.create!(name: "つな子001", email: nil, password: "000000", admin: true, baby_due_on: "")
+User.create!(name: "つな子001", email: nil, password: "000000", admin: true, baby_due_on: "2022-01-01")
 User.create!(name: "たら子001", email: nil, password: "000000", admin: true, baby_due_on: "2021-12-01")
 User.create!(name: "あゆ美001", email: nil, password: "000000", admin: true, baby_due_on: "2021-08-01")
-User.create!(name: "つな子002", email: nil, password: "000000", admin: false, baby_due_on: "")
+User.create!(name: "つな子002", email: nil, password: "000000", admin: false, baby_due_on: "2022-01-01")
 User.create!(name: "たら子002", email: nil, password: "000000", admin: false, baby_due_on: "2021-12-01")
 User.create!(name: "あゆ美002", email: nil, password: "000000", admin: false, baby_due_on: "2021-08-01")
 
