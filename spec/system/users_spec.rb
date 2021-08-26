@@ -201,6 +201,7 @@ RSpec.describe 'Users', type: :system do
       end
       it '自分の管理者権限の削除ができる' do
         click_link '管理者ページ'
+        sleep 2
         within('.wrapper > table > tbody > tr:nth-last-of-type(1)') do
           click_button '管理者権限の変更'
         end

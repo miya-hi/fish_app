@@ -38,7 +38,9 @@ RSpec.describe 'Fishes', type: :system do
         expect(page).to have_content 'fish001'
 
         #詳細ページで数値を確認
+        sleep 2
         find('.today > a').click
+        sleep 4
         expect(current_path).to eq diary_path(Date.today.strftime("%Y-%m-%d"))
         expect(page).to have_content 'fish001'
         expect(page).to have_content '1.5g'

@@ -22,7 +22,7 @@ RSpec.describe 'Diaries', type: :system do
         expect(page).to have_content 'カジキ(ﾒｶｼﾞｷ)'
 	# 追加登録
         find('.today > a').click
-        find('.mybutton-left').click
+        find('a > .mybutton-left').click
         select 'さ', from: 'diary[line]'
         sleep 0.5
         select 'さば 缶詰', from: 'diary[fish_id]'
@@ -50,7 +50,10 @@ RSpec.describe 'Diaries', type: :system do
     end
     context '登録済みのカレンダーをクリックした場合' do
       it '魚を編集できる' do
+        sleep 2
         find('.today > a').click
+        sleep 4
+        expect(current_path).to eq diary_path(Date.today.strftime("%Y-%m-%d"))
         click_button '編集'
         select 'さ', from: 'diary[line]'
         sleep 0.5
@@ -76,7 +79,9 @@ RSpec.describe 'Diaries', type: :system do
       select 'カジキ(ﾒｶｼﾞｷ)', from: 'diary[fish_id]'
       fill_in 'diary[amount]', with: '80'
       click_button '登録'
+      sleep 2
       find('.today > a').click
+      expect(current_path).to eq diary_path(Date.today.strftime("%Y-%m-%d"))
     end
     context '削除ボタンをクリックした場合' do
       it '魚を削除できる' do
