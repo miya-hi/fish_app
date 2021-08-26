@@ -50,6 +50,12 @@ RSpec.describe Fish, type: :model do
         expect(@fish).not_to be_valid
       end
     end
+    context '行が2文字以上の場合' do
+      it 'バリデーションエラーになる' do
+        @fish.line = 'ああ'
+        expect(@fish).not_to be_valid
+      end
+    end
     context 'n-3系脂肪酸が空の場合' do
       it 'バリデーションエラーになる' do
         @fish.n3_oil = ''
