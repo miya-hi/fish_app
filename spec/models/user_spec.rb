@@ -40,6 +40,17 @@ RSpec.describe User, type: :model do
         expect(@user).not_to be_valid
       end
     end
+    context '出産予定日が過去の日付でユーザー登録した場合' do
+      it 'バリデーションエラーになる' do
+        user = User.create(
+          name: "name001",
+          password: "password",
+          admin: false,
+          baby_due_on: Date.today-1
+        )
+        expect(user).not_to be_valid
+      end
+    end
     context 'ニックネームが重複した場合' do
       it 'バリデーションエラーになる' do
         user = User.create(
