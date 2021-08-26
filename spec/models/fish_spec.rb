@@ -56,9 +56,27 @@ RSpec.describe Fish, type: :model do
         expect(@fish).not_to be_valid
       end
     end
+    context 'n-3系脂肪酸が負の値の場合' do
+      it 'バリデーションエラーになる' do
+        @fish.n3_oil = '-1.0'
+        expect(@fish).not_to be_valid
+      end
+    end
     context 'ビタミンAが空の場合' do
       it 'バリデーションエラーになる' do
         @fish.vitamin_a = ''
+        expect(@fish).not_to be_valid
+      end
+    end
+    context 'ビタミンAが負の値の場合' do
+      it 'バリデーションエラーになる' do
+        @fish.vitamin_a = '-1'
+        expect(@fish).not_to be_valid
+      end
+    end
+    context '水銀が負の値の場合' do
+      it 'バリデーションエラーになる' do
+        @fish.mercury = '-1.0'
         expect(@fish).not_to be_valid
       end
     end
