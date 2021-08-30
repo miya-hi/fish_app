@@ -1,3 +1,59 @@
 // Place all the styles related to the fishes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.fish-index-select {
+  width: 330px;
+  border: solid 3px #d1c9c9;
+  background-color: #d1c9c9;
+  border-radius: 30px;
+}
+.fish-index-line{
+width: 80px;
+margin: 0 5px;
+color: pink;
+}
+
+.fish-index-name select{
+width: 210px;
+margin: 0 10 0 5px;
+text-align: right;
+}
+
+.fish-index {
+  background: whitesmoke;/*背景色*/
+    border-left: double 7px #808080;/*左線*/
+    border-right: double 7px #808080;/*右線*/
+  // border: solid 4px #4c4c4c;
+  // border-radius: 5px;
+  width: 370px;
+  margin: 27px 0 30px 0;
+}
+#fish-name {
+  padding-top: 5px;
+  font-size: 1.2rem;
+}
+.fish-index .border-btm {
+  border-bottom: dotted 2.5px #808080;
+}
+.fish-index th{
+  width: 130px;
+  padding: 5px;
+  text-align: right;
+}
+.fish-index .value{
+  width: 120px;
+  padding: 5px;
+  text-align: right;
+  border-bottom: dotted 2.5px #808080;
+}
+.fish-index .unit{
+  width: 120px;
+  padding: 5px 5px;
+  text-align: left;
+  border-bottom: dotted 2.5px #808080;
+}
+#fish-memo {
+  width: 240px;
+  height: 5rem;
+  font-size: 1rem;
+}

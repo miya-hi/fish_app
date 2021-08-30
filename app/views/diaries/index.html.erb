@@ -31,7 +31,10 @@
       </div>
     </div>
     <div class="calendar">
+      <div class="button-area">
+      <%= link_to image_tag('book.png', class: "bookbutton"),fishes_path, {method: :get} %>
       <%= link_to image_tag('newfish-btn.png', class: "mybutton"),new_diary_path, {method: :get} %>
+      </div>
       <br>
     <%= month_calendar events: @diaries do |date, diaries| %>
       <%= link_to date.day, diary_path(date.strftime('%Y-%m-%d')) %>

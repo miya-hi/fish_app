@@ -5,7 +5,7 @@ class Api::FishesController < Api::BaseController
       @fishes = Fish.where(line: to_kana_line_list(params[:line])).order(line: :asc).all
     else
       render json: { error: '選択してください' }, status: :bad_request
-      return 
+      return
     end
   end
 
@@ -18,23 +18,23 @@ class Api::FishesController < Api::BaseController
   def to_kana_line_list(line)
     case line
     when 'あ'
-      ("あ".."お").step(2).to_a
+      ["あ", "い", "う", "え", "お"]
     when 'か'
-      ("か".."こ").step(2).to_a
+      ["か", "き", "く", "け", "こ"]
     when 'さ'
-      ("さ".."そ").step(2).to_a
+      ["さ", "し", "す", "せ", "そ"]
     when 'た'
-      ("た".."と").step(2).to_a
+      ["た", "ち", "つ", "て", "と"]
     when 'な'
-      ("な".."の").step(2).to_a
+      ["な", "に", "ぬ", "ね", "の"]
     when 'は'
-      ("は".."ほ").step(2).to_a
+      ["は", "ひ", "ふ", "へ", "ほ"]
     when 'ま'
-      ("ま".."も").step(2).to_a
+      ["ま", "み", "む", "め", "も"]
     when 'や'
-      ("や".."よ").step(2).to_a
+      ["や", "ゆ", "よ"]
     when 'ら'
-      ("ら".."ろ").step(2).to_a
+      ["ら", "り", "る", "れ", "ろ"]
     when 'わ'
       ["わ"]
     end

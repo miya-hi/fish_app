@@ -323,10 +323,14 @@ label {
   display: flex;
   justify-content: space-around;
 }
+.bookbutton {
+  width: 100px;
+  margin-right: 250px;
+}
 .mybutton {
   display: flex;
   justify-content: center;
-  width: 150px;
+  width: 145px;
   margin: 0 auto;
   // text-decoration: none;
   // text-align: center;
@@ -340,7 +344,7 @@ label {
 .mybutton-left {
   display: flex;
   justify-content: center;
-  width: 150px;
+  width: 145px;
   // text-decoration: none;
   // text-align: center;
   // color: #2C4667;
