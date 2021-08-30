@@ -1,101 +1,99 @@
 <% if @diaries.size > 0 %>
-<h2><%= @diaries.first.input_at.strftime("%m / %d") %> のおさかな記録</h2>
-<div class="link_to"><%= link_to image_tag('addfish-btn.png', class: "mybutton-left"),new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), {method: :get} %></div>
-  <h4>詳細</h4>
-  <table class="show-wrapper">
-  <thead>
-          <tr>
-              <th></th>
-
-              <th>n-3系脂肪酸</th>
-              <th>水銀</th>
-              <th>ビタミンA</th>
-                <th></th>
-          </tr>
-      </thead>
-
-<tbody class="show-of-fish">
-<% @diaries.each do |diary| %>
-
-  <tr>
-    <td><%= diary.fish.name %>:
-    <%= diary.amount %>g</td>
-
-
-      <td><%= diary.fish_n3_oil.round(1) %>g</td>
-      <td><%= diary.fish_mercury.round %>%</td>
-      <td><%= diary.fish_vitamin_a %>μgRAE</td>
-      <td class="vertical-button"><%= button_to'編集',edit_diary_path(diary.id), { method: :get, class:"button" } %>
-        <%= button_to '削除',diary_path(diary.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class:"button" %></td>
-    </tr>
-
-  <% end %>
+  <h2><%= @diaries.first.input_at.strftime("%m / %d") %> のおさかな記録</h2>
+  <div class="link_to"><%= link_to image_tag('addfish-btn.png', class: "mybutton-left"),new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), {method: :get} %></div>
+    <h4>詳細</h4>
+    <table class="show-wrapper">
+    <thead>
+      <tr>
+        <th></th>
+        <th>n-3系脂肪酸</th>
+        <th>水銀</th>
+        <th>ビタミンA</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="show-of-fish">
+      <% @diaries.each do |diary| %>
+        <tr>
+          <td><%= diary.fish.name %>:
+            <%= diary.amount %>g</td>
+          <td><%= diary.fish_n3_oil.round(1) %>g</td>
+          <td><%= diary.fish_mercury.round %>%</td>
+          <td><%= diary.fish_vitamin_a %>μgRAE</td>
+          <td class="vertical-button"><%= button_to'編集',edit_diary_path(diary.id), { method: :get, class:"button" } %>
+            <%= button_to '削除',diary_path(diary.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class:"button" %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
-<br>
-
+  <br>
   <h4>合計</h4>
   <table class="show-wrapper">
     <thead>
       <tr>
-  <th></th>
-<th>合計</th>
-<th>基準</th>
-<th>アドバイス</th>
-</tr>
-</thead>
-<tbody class="show-of-fish">
-    <% total_n3_oil = @diaries.sum{|f| f.fish_n3_oil} %>
-    <tr>
-      <td>n-3系脂肪酸</td>
-      <td><%= total_n3_oil.round(1) %>g</td>
-      <td>1.6g以上 /日</td>
-      <td class="advice">
-        <% if total_n3_oil >= 1.6 %>
-          <%= "きちんと摂れています。" %>
-        <% else %>
-          <%= "n-3系脂肪酸は、特に青魚に多く含まれています。また、サプリメントやアマニ油・エゴマ油など活用するのもいいでしょう。" %>
-        <% end %>
-      </td>
-
-    </tr>
-      <tr>
-        <td>水銀</td>
-
-
-
-      <% total_mercury = @diaries.sum{|f| f.fish_mercury} %>
-      <td><%= total_mercury.round %>％</td>
-      <td>100%まで /週</td>
-      <td class="advice">
-        <% if total_mercury >= 100 %>
-          <%= "水銀が多いため、今後しばらくは水銀の多いおさかなを控えましょう。" %>
-        <% else %>
-          <%= "この日の摂取量は基準値内です。前後１週間の合計を、グラフで確認してみましょう。" %>
-        <% end %>
-      </td>
+        <th></th>
+        <th>合計</th>
+        <th>基準</th>
+        <th>アドバイス</th>
       </tr>
-      <tr>
-
-      <% total_vitamin_a = @diaries.sum{|f| f.fish_vitamin_a} %>
-  <td>ビタミンA</td>
-
-        <td><%= total_vitamin_a %>μgRAE</td><td>650~700μgRAE程度 /日</td>
-        <td class="advice">
-          <% if total_vitamin_a >= 700 %>
-            <%= "ビタミンAが多めです。特に妊娠初期は、魚や肉に含まれるビタミンAの摂りすぎに気をつけましょう。" %>
-          <% else %>
-            <%= "ビタミンAが多すぎることはありません。" %>
-          <% end %>
-        </td>
-      </tr>
+    </thead>
+    <tbody class="show-of-fish">
+      <% total_n3_oil = @diaries.sum{|f| f.fish_n3_oil} %>
+        <tr>
+          <td>n-3系脂肪酸</td>
+          <td><%= total_n3_oil.round(1) %>g</td>
+          <td>1.6g以上 /日</td>
+          <td class="advice">
+            <% if total_n3_oil >= 1.6 %>
+              <%= "きちんと摂れています。" %>
+            <% else %>
+              <%= "n-3系脂肪酸は、特に青魚に多く含まれています。また、サプリメントやアマニ油・エゴマ油など活用するのもいいでしょう。" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>水銀</td>
+          <% total_mercury = @diaries.sum{|f| f.fish_mercury} %>
+          <td><%= total_mercury.round %>％</td>
+          <td>100%まで /週</td>
+          <td class="advice">
+            <% if total_mercury >= 100 %>
+              <%= "水銀が多いため、今後しばらくは水銀の多いおさかなを控えましょう。" %>
+            <% else %>
+              <%= "この日の摂取量は基準値内です。前後１週間の合計を、グラフで確認してみましょう。" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <% total_vitamin_a = @diaries.sum{|f| f.fish_vitamin_a} %>
+          <td>ビタミンA</td>
+          <td><%= total_vitamin_a %>μgRAE</td>
+          <td>
+            <% if current_user.baby_due_on %>
+            <% date=(Date.today - current_user.baby_due_on + 280).to_int %>
+              <% if date/7 >= 28 %>
+                <%= "730~780μgRAE程度 /日" %>
+              <% else %>
+                <%= "650~700μgRAE程度 /日" %>
+              <% end %>
+            <% else %>
+              <%= "650~700μgRAE程度 /日" %>
+            <% end %>
+          </td>
+          <td class="advice">
+            <% if total_vitamin_a >= 700 %>
+              <%= "ビタミンAが多めです。特に妊娠初期は、魚や肉に含まれるビタミンAの摂りすぎに気をつけましょう。" %>
+            <% else %>
+              <%= "ビタミンAが多すぎることはありません。" %>
+            <% end %>
+          </td>
+        </tr>
     </tbody>
-    </table>
-    <br>
-    <div class="link_to"><%= link_to "ホームへ戻る",diaries_path %></div>
+  </table>
+  <br>
+  <div class="link_to"><%= link_to "ホームへ戻る",diaries_path %></div>
 <% else %>
-<h2><%= @input_at.strftime("%m / %d") %></h2>
-<p>記録がありません</p>
+  <h2><%= @input_at.strftime("%m / %d") %></h2>
+    <p>記録がありません</p>
   <div class="link_to"><%= link_to image_tag('newdayfish-btn.png', class: "mybutton"),new_diary_path(input_at: @input_at.strftime('%Y-%m-%d')), {method: :get} %></div>
-
 <% end %>
