@@ -4,7 +4,7 @@
       <div class="mercury-chart">
         <p class="sum"><%= @total_mercury.round%>％<span class="target"> / 上限 100%</span></p>
         <% if @total_mercury >= 100 %>
-        <p class="message-on-chart"><%= "超えています" %><br><%= "多い魚は控えましょう" %><button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#mercuryModal">↗︎</button></p>
+        <p class="message-on-chart"><%= "超えています" %><br><%= "多い魚を控えましょう" %><button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#mercuryModal">↗︎</button></p>
         <%= column_chart({ "" => @total_mercury.round }, colors: ["#b00"], backgroundColor: "#fff") %>
         <% elsif @total_mercury >= 50 %>
         <p class="message-on-chart"><%= "もう少しで上限です" %><br><%= "基準を見る" %><button type="button" class="btn btn-outline-danger btn-xs w-15" data-toggle="modal" data-target="#mercuryModal">↗︎</button></p>
@@ -58,22 +58,22 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="mercuryModalTitle">メチル水銀<p>　過剰な摂取が、赤ちゃんの音の聞こえ方などに<br>　影響を与えると言われています。<br>　上限：100% / 週</p></h5>
+                  <h5 class="modal-title" id="mercuryModalTitle">メチル水銀<p>　摂り過ぎが、赤ちゃんの音の聞こえ方に<br>　影響すると言われています。<br>　上限：100% / 週</p></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
               </div>
               <div class="modal-body modal-fish">
-                <div>1週間の基準は？</div><br>
-                <div>● 2切れ（160g）までの魚</div>
+                <div>< 1週間の基準 ></div><br>
+                <div>● 2切れ（160g）まで</div>
                 <p>キダイ、マカジキ、ユメカサゴ、インドマグロ（ミナミマグロ）、ヨシキリザメ、イシイルカ</p>
-                <div>● 1切れ（80g）までの魚</div>
+                <div>● 1切れ（80g）まで</div>
                 <p>金目鯛、メカジキ、本マグロ（クロマグロ）、メバチマグロ、エッチュウバイガイ、ツチクジラ、マッコウクジラ</p>
-                <div>● 半切れ（40g）までの魚</div>
+                <div>● 半切れ（40g）まで</div>
                 <p>コビレゴンドウ</p>
-                <div>● 10gまでの魚</div>
+                <div>● 10gまで</div>
                 <p>バンドウイルカ</p>
-                <div>その他の魚は、心配ありません</div><br>
+                <div>その他の魚は、心配ありません。</div><br>
                 <div class="about-tuna">補足）<br>上記基準の上限（〇〇gまで）を100%と設定しています。</div>
               </div>
           </div>
@@ -83,7 +83,7 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="n3ModalTitle">n-3系脂肪酸(DHA・EPA)<p>　赤ちゃんの神経発達に欠かせない栄養素<br>　目安量：1.6g / 日 （ 11.2g / 週 ）</p></h5>
+                  <h5 class="modal-title" id="n3ModalTitle">n-3系脂肪酸(DHA・EPA)<p>　赤ちゃんの脳の発達に、欠かせない栄養素<br>　目安量：1.6g / 日 （ 11.2g / 週 ）</p></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
