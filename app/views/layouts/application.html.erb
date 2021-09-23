@@ -41,7 +41,7 @@
           <ul class="nav-right rounded">
             <li class="nav-button"><%= image_tag 'login.png', class: 'icon' %><%= link_to "ログイン", new_user_session_path %></li>
             <li><%= image_tag 'glass.png', class: 'icon' %><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %></li>
-            <li><%= image_tag 'key.png', class: 'icon' %><%= link_to "管理者ゲストログイン", users_admin_guest_sign_in_path, method: :post %></li>
+            <li><%= image_tag 'key.png', class: 'icon' %><%= link_to "管理者ゲストログイン", root_path, method: :post %></li>
           </ul>
         </nav>
       </header>
